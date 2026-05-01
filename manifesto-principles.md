@@ -4,6 +4,10 @@
 
 *Governance intensity should be proportionate to risk. Claims that gate agent action in regulated workflows require full governance. Claims used for informational support may warrant lighter treatment. The principles below define the ceiling, not a uniform floor.*
 
+These twelve principles govern the substrate from which organizational intelligence emerges. Knowledge — structured claims with provenance, confidence, and scope — is what the system holds. Organizational intelligence — the institutional capacity to perceive relevant patterns, infer consequences, and select action opportunities aligned with purpose — is what the system enables. The principles maintain the substrate. What emerges on top depends on how well the substrate is built and maintained.
+
+When these principles operate together over time — when confidence is continuously earned, decay is actively governed, contradictions are preserved, and every engagement feeds back — something structural changes: the enforcement locus of governance migrates from synchronous pre-action gating to the substrate's own causal architecture. This is governance relocation. It is not a separate principle. It is the emergent consequence of the twelve principles working in concert on a deepening substrate.
+
 ---
 
 ## Part I — Principles of the Intelligence Architecture
@@ -108,11 +112,13 @@ Cross-domain link detection, gap analysis, and conflict surfacing are implementa
 
 ---
 
-### Principle 10: Every engagement feeds the graph.
+### Principle 10: Every engagement feeds the domain graph.
 
-No engagement is purely a consumer of intelligence. Every delivery, every deployment, every agent interaction generates observations that feed back. Intelligence that doesn't compound through use is a cost centre. Intelligence that compounds is infrastructure. The graph improves the more it is used.
+No engagement is purely a consumer of intelligence. Every delivery, every deployment, every agent interaction generates observations that feed back into the domain graph — the shared institutional substrate that no single engagement owns but every engagement enriches. Intelligence that doesn't compound through use is a cost centre. Intelligence that compounds is infrastructure.
 
-**Minimum bar:** Every engagement has a defined feedback pathway from delivery observations to Ingest. Feedback rate (observations returned per engagement) is a tracked metric.
+The domain graph sits between foundation model capability and application context. It is the accumulated, governed, reusable domain substrate: how settlement workflows interact with penalty regimes, how regulatory requirements cascade through product hierarchies, how operational workarounds interact with control frameworks. Each engagement that operates on the domain graph enriches it — gaps identified, claims validated against operational reality, cross-domain edges discovered. This is fertility: the rate at which existing knowledge generates new knowledge through operation.
+
+**Minimum bar:** Every engagement has a defined feedback pathway from delivery observations to Ingest. Feedback rate (observations returned per engagement) is a tracked metric. The domain graph — not engagement-specific knowledge stores — is the primary destination for feedback.
 
 ---
 
@@ -134,16 +140,18 @@ Intelligence governance that depends on volunteer effort dies. Curation time mus
 
 ---
 
-## Revision Log (v1.0 → v1.1)
+## Revision Log
 
-| Principle | Change | Driven by |
-|---|---|---|
-| Preamble | Added proportionality statement — governance intensity varies by risk | SW-4: governance scaling critique |
-| P1 | Added claim definition, scope requirement, lineage acknowledgment, tacit knowledge boundary | SW-2: claim undefined; SW-3: tacit knowledge; IC-3: epistemologist critique |
-| P2 | Added social provenance and integrity verification | SW-5: security gap; PC: epistemologist rewrite |
-| P3 | Added epistemic dependence concept, confidence ≠ truth caveat, expert-dependent status | SW-7: false precision; IC: Hardwig's epistemic dependence |
-| P4 | Added contradiction taxonomy (5 types), relabeled CREST/CSDR example as jurisdictional divergence | IC-3: contradiction terminology; P4/P8 critiques |
-| P6 | Added ontology evolution to semantic authority; clarified these are functional, not org chart | IC-1: bureaucratic bottleneck; IC-4: semantic brittleness |
-| P7 | Strengthened Emerge guardrails — hypotheses not claims, uncontrolled Emerge is failure mode | IC-2: Emerge danger |
-| P9 | Reframed as "structured inquiry" — honest about what's technically deliverable | IC-7: reasoning oversold; PD: tech architect rewrite |
-| P11 | Added traceability ≠ safety caveat — operates alongside thresholds, oversight, containment | EC-2: traceability fallacy |
+| Version | Principle | Change | Driven by |
+|---|---|---|---|
+| v1.1 | Preamble | Added proportionality statement — governance intensity varies by risk | SW-4: governance scaling critique |
+| v1.1 | P1 | Added claim definition, scope requirement, lineage acknowledgment, tacit knowledge boundary | SW-2: claim undefined; SW-3: tacit knowledge; IC-3: epistemologist critique |
+| v1.1 | P2 | Added social provenance and integrity verification | SW-5: security gap; PC: epistemologist rewrite |
+| v1.1 | P3 | Added epistemic dependence concept, confidence ≠ truth caveat, expert-dependent status | SW-7: false precision; IC: Hardwig's epistemic dependence |
+| v1.1 | P4 | Added contradiction taxonomy (5 types), relabeled CREST/CSDR example as jurisdictional divergence | IC-3: contradiction terminology; P4/P8 critiques |
+| v1.1 | P6 | Added ontology evolution to semantic authority; clarified these are functional, not org chart | IC-1: bureaucratic bottleneck; IC-4: semantic brittleness |
+| v1.1 | P7 | Strengthened Emerge guardrails — hypotheses not claims, uncontrolled Emerge is failure mode | IC-2: Emerge danger |
+| v1.1 | P9 | Reframed as "structured inquiry" — honest about what's technically deliverable | IC-7: reasoning oversold; PD: tech architect rewrite |
+| v1.1 | P11 | Added traceability ≠ safety caveat — operates alongside thresholds, oversight, containment | EC-2: traceability fallacy |
+| v1.2 | Preamble | Added organizational intelligence framing — principles govern substrate from which intelligence emerges. Added governance relocation as emergent consequence of principles operating together. | Manifesto v1.2: organizational intelligence hierarchy, governance relocation mechanism |
+| v1.2 | P10 | Renamed to "Every engagement feeds the domain graph." Added domain graph as shared institutional substrate, fertility concept, clarified feedback destination. | Manifesto v1.2: domain graph as enterprise substrate |
