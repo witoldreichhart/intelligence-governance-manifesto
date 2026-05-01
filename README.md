@@ -2,7 +2,7 @@
 
 **Principles for governing the domain intelligence that AI systems depend on.**
 
-By Witold Reichhart and Arnaud Gelas
+By **[Witold Reichhart](https://github.com/witoldreichhart) and [Arnaud Gelas](https://github.com/arnaudgelas)**
 
 ---
 
