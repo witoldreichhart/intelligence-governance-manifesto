@@ -2,11 +2,11 @@
 
 **Principles for governing the domain intelligence that AI systems depend on.**
 
-By **[Witold Reichhart](https://github.com/witoldreichhart) and [Arnaud Gelas](https://github.com/arnaudgelas)**
+*Authors: **[Witold Reichhart](https://github.com/witoldreichhart) and [Arnaud Gelas](https://github.com/arnaudgelas)***
 
 ---
 
-## What This Is
+## What this is
 
 A manifesto for intelligence governance in regulated industries.
 
@@ -18,7 +18,7 @@ This manifesto defines the structure.
 
 ---
 
-## Six Values
+## Six values
 
 | We value more | | over what we also value |
 |---|---|---|
@@ -31,37 +31,41 @@ This manifesto defines the structure.
 
 ---
 
-## Reading Guide
+## Reading guide
 
 | Document | What it covers |
 |---|---|
-| **[manifesto.md](manifesto.md)** | Core manifesto: why this exists, six values with rationale, the intelligence lifecycle, definition of done, failure modes |
-| **[manifesto-principles.md](manifesto-principles.md)** | Twelve principles with minimum bars, organised in two parts: Intelligence Architecture (1-5) and Intelligence Operations (6-12) |
-| **[companion-guide.md](companion-guide.md)** | The claim model in detail, L1/L2/L3 memory spectrum, confidence levels and thresholds, engagement archetypes, authority conflict resolution, boundary conditions |
-| **[implementation-guide.md](implementation-guide.md)** | Five maturity levels, phased adoption sequence, metrics, epistemic circuit breakers, decay triage at scale, common failure patterns |
-| **[domains/financial-services.md](domains/financial-services.md)** | Principle-by-principle mapping to FS regulations: EU AI Act, SR 11-7, DORA, MiFID II, BCBS 239, GDPR |
-| **[governance/queries.md](governance/queries.md)** | 25 canonical intelligence governance queries across six governance concerns |
+| [manifesto.md](manifesto.md) | Core manifesto: why this exists, six values, intelligence lifecycle, governance relocation, domain graph, definition of done, failure modes |
+| [manifesto-principles.md](manifesto-principles.md) | Twelve principles with minimum bars: Intelligence Architecture (1-5) and Intelligence Operations (6-12) |
+| [companion-guide.md](companion-guide.md) | Claim model, L1/L2/L3 memory spectrum, confidence levels and thresholds, engagement archetypes, authority conflicts, boundary conditions |
+| [implementation-guide.md](implementation-guide.md) | Five maturity levels, phased adoption, metrics, epistemic circuit breakers, decay triage, failure patterns |
+| [glossary.md](glossary.md) | Term definitions as used in this framework |
+| [positioning.md](positioning.md) | How intelligence governance differs from data governance, knowledge management, knowledge graphs, and RAG |
+| [domains/financial-services.md](domains/financial-services.md) | Principle-by-principle mapping to FS regulations: EU AI Act, SR 11-7, DORA, MiFID II, BCBS 239, GDPR |
+| [governance/queries.md](governance/queries.md) | 25 canonical governance queries across six concerns |
 
 ---
 
-## Companion: The Agentic Engineering Manifesto
+## The governance stack
 
-This manifesto governs what agents **know**. The [Agentic Engineering Manifesto](https://github.com/arnaudgelas/agentic-engineering-manifesto) by Arnaud Gelas governs what agents **do**.
+This manifesto governs the intelligence layer — what agents know. It sits within a five-layer governance architecture:
 
-Together they form the full stack for deploying AI safely in regulated industries. See the connection section in manifesto.md for how they work in tandem.
+| Layer | Governs | Source |
+|---|---|---|
+| **Engineering** | How human-agent loops build software | [Agentic Engineering Manifesto](https://github.com/arnaudgelas/agentic-engineering-manifesto) (Gelas) |
+| **Delivery** | How agent-built software reaches production | [ASDLC](https://github.com/arnaudgelas/asdlc) (Gelas) |
+| **Product** | How agent products behave in production | [APLC](https://github.com/arnaudgelas/aplc) (Gelas) |
+| **Intelligence** | What agents know and how knowledge is maintained | **This repo** (Reichhart and Gelas) |
+| **Enterprise** | How governed agents on governed intelligence produce institutional value | [Agentic Enterprise Manifesto](https://github.com/witoldreichhart/agentic-enterprise-manifesto) (Reichhart and Gelas) |
+
+Each layer is necessary. None is sufficient alone.
 
 ---
 
-## Contributing
+## Status
 
-We welcome critique, challenge, and contribution. See CONTRIBUTING.md.
-
-This is a living document. Intelligence governance is a new discipline — the principles will evolve as implementations test them.
-
----
+Version 1.2 — May 2026. This is a living document. We welcome critical engagement.
 
 ## License
 
-This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
-
-You are free to share and adapt this material for any purpose, including commercial, as long as you give appropriate credit and distribute your contributions under the same license.
+CC BY-SA 4.0
