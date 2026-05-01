@@ -207,7 +207,7 @@ This manifesto governs the intelligence substrate — what agents know. It sits 
 | **Delivery** | How agent-built software reaches production | The delivery pipeline | [ASDLC](https://github.com/arnaudgelas/asdlc) (Gelas) |
 | **Product** | How agent products behave in production | Individual agent behavior | [APLC](https://github.com/arnaudgelas/aplc) (Gelas) |
 | **Intelligence** | What agents know and how knowledge is maintained | The shared substrate | This manifesto (Reichhart and Gelas) |
-| **Enterprise** | How governed agents on governed intelligence produce institutional value | The organization | Agentic Enterprise Manifesto (Reichhart and Gelas) — forthcoming |
+| **Enterprise** | How governed agents on governed intelligence produce institutional value | The organization | [Agentic Enterprise Manifesto](https://github.com/witoldreichhart/agentic-enterprise-manifesto) (Reichhart and Gelas) |
 
 Each layer is necessary. None is sufficient alone.
 
