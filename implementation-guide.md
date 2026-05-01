@@ -1,6 +1,6 @@
 # Intelligence Governance — Implementation Guide
 
-**Witold Reichhart and Arnaud Gelas**
+**[Witold Reichhart](https://github.com/witoldreichhart) and [Arnaud Gelas](https://github.com/arnaudgelas)**
 
 This guide provides an adoption path for intelligence governance. It is organized by maturity level, starting from minimum viable governance through to full operational governance in regulated industries.
 
