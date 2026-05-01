@@ -3,7 +3,7 @@
 **Principles for governing the domain intelligence that AI systems depend on.**
 
 *Authors: **[Witold Reichhart](https://github.com/witoldreichhart) and [Arnaud Gelas](https://github.com/arnaudgelas)***
-*Version: 1.1 — April 2026*
+*Version: 1.2 — May 2026*
 
 ---
 
@@ -26,6 +26,22 @@ The core concepts — claims as a unit of governance, confidence scoring, proven
 Most organisations already perform intelligence governance informally. SMEs interpret sources. Architects reconcile contradictions. Control functions judge reliability. The work exists — scattered across people, meetings, corridor conversations, and whoever happens to remember how things work. The shift is from implicit maintenance to explicit operations.
 
 This manifesto defines the structure for that shift.
+
+---
+
+## Intelligence, Not Knowledge
+
+A governed knowledge graph is not intelligent. It is the substrate from which intelligence can be exercised. The distinction matters because it determines what the lifecycle produces and what agents can do with it.
+
+**Knowledge** is structured content: validated claims, causal relations, provenance, confidence, temporal validity, scope, and governance status. Knowledge is what the system holds.
+
+**Organizational intelligence** is the system-level capacity to perceive institutionally relevant patterns, infer their consequences, and select or recommend action opportunities aligned with organizational purpose under changing constraints. Intelligence is not a property of the model alone. It is a property of the agent-substrate system — the interaction between inferential capability, governed knowledge, and the institutional constraints that define what "aligned" means.
+
+**Governed intelligence** is what emerges when AI capability operates over knowledge that is current, contextual, connected, validated, scoped, auditable, and capable of learning from use. It is the capacity of the institution — not the model — to reason and act reliably.
+
+This hierarchy prevents two errors. The first is treating knowledge infrastructure as intelligence — building a graph and calling it done. The second is treating model capability as organizational intelligence — deploying capable models without governed domain knowledge and expecting institutional judgment.
+
+The intelligence lifecycle specified below maintains the substrate. What agents do with that substrate — from executing assigned tasks (autonomy) to surfacing action opportunities aligned with institutional purpose before being asked (initiative) — depends on the depth, fertility, and governance integrity of what the lifecycle produces. Shallow substrate supports autonomy. Deep, governed, continuously enriched substrate supports initiative. The manifesto governs the substrate. What emerges on top is determined by how well the substrate is built and maintained.
 
 ---
 
@@ -84,13 +100,47 @@ Intelligence follows a continuous lifecycle. Any system that treats these stages
 
 **Consolidate** → Connect claims. Entity resolution, contradiction surfacing, relationship structure. Creates edges.
 
-**Curate** → Maintain quality. Validate, promote, demote, manage contradictions, monitor decay. Maintains nodes and edges.
+**Curate** → Maintain quality. Validate, promote, demote, manage contradictions, monitor decay. Maintains nodes and edges. This is the immune function — the stage that defends the substrate against the six failure modes of epistemic degradation: pollution, staleness, fragmentation, amnesia, cascade failure, and structural distortion.
 
 **Expand** → Generate claims the graph suggests should exist. Gap detection, cross-domain links, frontier expansion. Creates new nodes. Expand produces acquisition hypotheses and gap candidates — never operational claims. Every suggestion enters the standard validation pipeline. Nothing reaches operational use without human approval.
 
 **Apply** → Deliver the relevant subgraph to a specific task. Confidence filtering, depth control, role-scoping. Observations feed back to Ingest. Extracts context.
 
 Not sequential — concurrent. All five stages run continuously. Every engagement is both consumer and generator of intelligence. Usage reveals deficiency. The graph improves the more it is used.
+
+### Governance relocation
+
+The lifecycle does more than maintain knowledge quality. As the substrate deepens — more validated claims, richer causal connections, more cross-domain edges — something structural changes in how governance operates.
+
+At low substrate depth, governance is external friction: explicit pre-action constraint checking, human approval for every agent action, hard boundaries enforced before anything happens. As the substrate deepens, the causal rationale those constraints protect becomes structurally represented in the graph itself. An agent reasoning over a deep, well-governed substrate encounters the consequence structure that governance was encoding — during normal reasoning, not as a separate compliance check.
+
+Governance does not disappear. Its enforcement locus migrates from synchronous pre-action gating to the substrate's own causal architecture. Explicit checks shift from universal requirement to risk-based monitoring and audit sampling — per action class, measurably, reversibly. If the substrate degrades, governance re-tightens for affected action classes.
+
+This is governance relocation — the operational locus shifting from external rules to substrate-resident structure. It is the mechanism that converts a governed knowledge base into a substrate for institutional initiative. And it is measurable: declining governance intervention rates with stable or improving decision quality indicate relocation. Flat or rising rates indicate insufficient substrate depth.
+
+---
+
+## The Domain Graph
+
+The intelligence lifecycle maintains knowledge. But knowledge at which level?
+
+Foundation models provide broad pattern density at low domain specificity. Application context provides high specificity at low pattern density. Neither crosses the depth threshold required for domain-specific institutional intelligence in regulated industries.
+
+The domain graph sits between them — the missing middle layer. Accumulated, governed, reusable domain substrate that no single client owns but every client needs. How SWIFT message types relate to settlement workflows. How Basel III capital requirements cascade through product hierarchies. How operational workarounds interact with control frameworks. This is knowledge that any experienced practitioner carries but that no current AI system possesses as structured, validated, traversable intelligence.
+
+The domain graph satisfies four properties:
+
+**Scope** — domain-specific knowledge between public domain (regulations, standards) and client-walled (engagement-specific). The shared institutional substrate.
+
+**Provenance** — every claim carries source, validation status, confidence tier, temporal validity, and named authority. Governed L3 knowledge, not accumulated reference material.
+
+**Compounding** — each engagement that operates on the domain graph enriches it. Gaps identified, claims validated against operational reality, cross-domain edges discovered. The graph grows by generation — each use producing new connections — rather than by accumulation alone. This is fertility: the rate at which existing knowledge generates new knowledge through operation.
+
+**Decay management** — different knowledge types decay at different rates. The Curate process runs different maintenance cadences per decay class.
+
+The domain graph matters for intelligence governance because it is the substrate the lifecycle maintains. Without it, the lifecycle maintains scattered engagement-specific knowledge that never compounds. With it, the lifecycle maintains shared institutional intelligence that deepens through every engagement.
+
+The competitive implication is worth noting. Capability commoditises as foundation models converge. The domain graph does not commoditise because it compounds through governed operation. A competitor can replicate the schema. They cannot purchase the generative history.
 
 ---
 
@@ -147,46 +197,34 @@ The intelligence lifecycle produces supervisory observables: contradiction resol
 
 ---
 
-## Connection to the Agentic Engineering Manifesto
+## Connection to the Agentic Governance Stack
 
-This manifesto and the [Agentic Engineering Manifesto](https://github.com/arnaudgelas/agentic-engineering-manifesto) are companion documents by the same team.
+This manifesto governs the intelligence substrate — what agents know. It sits within a five-layer governance architecture:
 
-| Concern | Agentic Engineering Manifesto | Intelligence Governance Manifesto |
-|---|---|---|
-| **Core question** | How do agents safely build software? | How do organisations govern the intelligence agents depend on? |
-| **Governs** | Agent behaviour — permissions, verification, containment | Domain intelligence — claims, confidence, provenance, decay |
-| **Unit of work** | Verified outcome | Governed claim |
-| **Operational loop** | Specify → Plan → Execute → Verify → Observe → Learn → Govern | Ingest → Consolidate → Curate → Expand → Apply |
-| **Maturity model** | Six engineering phases | L1 → L2 → L3 memory spectrum |
-| **Governance** | Autonomy tiers, blast radius, defence-in-depth | Four authorities, confidence tiers, contradiction management |
-| **Definition of Done** | Shipped, Observable, Verified, Provable, Learned from, Governed, Economical | Populated, Connected, Validated, Governed, Applied, Traceable, Accountable, Funded |
-| **Economics** | Total cost of correctness | No unfunded mandates |
-| **Self-critique** | Over-governance, evidence theatre, maturity inflation | Intelligence theatre, authority vacuum, decay denial |
+| Layer | Scope | Governs | Source |
+|---|---|---|---|
+| **Engineering** | How human-agent loops build software | The engineering process | [Agentic Engineering Manifesto](https://github.com/arnaudgelas/agentic-engineering-manifesto) (Gelas) |
+| **Delivery** | How agent-built software reaches production | The delivery pipeline | [ASDLC](https://github.com/arnaudgelas/asdlc) (Gelas) |
+| **Product** | How agent products behave in production | Individual agent behavior | [APLC](https://github.com/arnaudgelas/aplc) (Gelas) |
+| **Intelligence** | What agents know and how knowledge is maintained | The shared substrate | This manifesto (Reichhart and Gelas) |
+| **Enterprise** | How governed agents on governed intelligence produce institutional value | The organization | Agentic Enterprise Manifesto (Reichhart and Gelas) — forthcoming |
 
-**The bridge:** The Agentic Engineering Manifesto's Principle 6 declares that "knowledge and memory are distinct infrastructure" that requires governance. This manifesto is the architecture behind that declaration — defining what intelligence infrastructure is, how to build it, how to govern it, and what organisational structure sustains it.
+Each layer is necessary. None is sufficient alone.
 
-The accountability chain: the Agentic Engineering Manifesto traces an agent's action to the specification that authorised it. This manifesto traces it further — from the specification to the domain intelligence that informed it. Together: a complete, auditable chain from what the agent did, through the constraint that allowed it, to the knowledge that justified it.
+The accountability chain runs through all five layers. The Engineering Manifesto traces an agent's action to the specification that authorised it. The ASDLC traces the specification to the delivery pipeline that produced it. The APLC traces the product behavior to its composite state. This manifesto traces the intelligence to its governed claims. Together: a complete, auditable chain from what the agent did, through the constraint that allowed it, the product that contained it, the pipeline that delivered it, to the knowledge that justified it.
 
-Neither manifesto is incomplete without the other. But together they form the full stack for deploying AI safely in regulated environments.
+The bridge to agent governance is specific. The Engineering Manifesto's Principle 6 declares that "knowledge and memory are distinct infrastructure" requiring governance. This manifesto is the architecture behind that declaration. The APLC's composite state includes "knowledge base" as one of five components that determine an agent product's behavioral identity. This manifesto governs that component. When the knowledge base changes — a claim is promoted, demoted, contradicted, or retired — the agent product's composite state changes with it.
 
 ---
 
-*Companion guide and organisational playbook in development. See [manifesto-principles.md](manifesto-principles.md) for the twelve principles with minimum bars.*
+*See [manifesto-principles.md](manifesto-principles.md) for the twelve principles with minimum bars. See [companion-guide.md](companion-guide.md) for the claim model in detail, the L1/L2/L3 memory spectrum, and worked examples. See [implementation-guide.md](implementation-guide.md) for the adoption path. See [domains/financial-services.md](domains/financial-services.md) for the FS regulatory mapping. See [governance/queries.md](governance/queries.md) for the 25 canonical governance queries. See [glossary.md](glossary.md) for term definitions. See [positioning.md](positioning.md) for how intelligence governance differs from data governance, knowledge management, and RAG.*
 
 ---
 
-## Revision Log (v1.0 → v1.1)
+## Revision Log
 
-| Change | Driven by | Classification |
+| Version | Changes | Date |
 |---|---|---|
-| Rewrote "Why This Manifesto" — acknowledged KM lineage, reframed as evolution under new forcing function | SW-1: KM Veteran, Consulting Competitor, Devil's Advocate (straw man critique) | Structural weakness |
-| Added claim boundary in Value 1 — explicit that claims are the governable subset, tacit knowledge lies outside | SW-3: Epistemologist, KM Veteran, AI Safety, Epistemologist Rewrite (tacit knowledge / context collapse) | Structural weakness |
-| Added contradiction taxonomy in Value 3 — types of conflict, jurisdictional divergence example relabeled | IC-3: Epistemologist, Devil's Advocate (contradiction terminology wrong) | Important consideration |
-| Added halt condition language in Value 3 — material contradictions in regulated workflows may require operational halt | PB: Regulator Rewrite (contradictions as stop conditions) | Rewrite insight |
-| Strengthened Value 5 — experts remain essential, system ensures insights survive tenure | MR-1: Epistemologist (misread as "replaces experts") | Misreading fix |
-| Added provenance integrity note in Value 2 | SW-5: Compliance/Regulatory, AI Safety (missing security treatment) | Structural weakness |
-| Strengthened Expand description — hypotheses not claims, human approval required | IC-2: AI Safety, Devil's Advocate (Emerge is dangerous) | Important consideration |
-| Added "Epistemic monoculture" failure mode | IC-6: AI Safety, Epistemologist Rewrite | Important consideration |
-| Added "Adversarial compromise" failure mode | SW-5: Compliance/Regulatory, AI Safety, Full Rewrite | Structural weakness |
-| Added cultural preconditions note to failure modes | IC-5: KM Veteran, Pragmatic CTO (can't architect your way out) | Important consideration |
-| Added "Regulatory Alignment" section with 3LoD mapping | SW-6: Compliance/Regulatory, Full Rewrite, Regulator Rewrite | Structural weakness |
+| v1.0 | Initial publication | April 2026 |
+| v1.1 | KM lineage acknowledged, contradiction taxonomy, regulatory alignment, failure modes expanded, provenance integrity, Expand guardrails. See detailed changelog in repo history. | April 2026 |
+| v1.2 | Added "Intelligence, Not Knowledge" section defining organizational intelligence. Added governance relocation mechanism to lifecycle. Added domain graph as enterprise substrate. Updated connection section to five-layer governance stack. Linked to companion guide, implementation guide, FS domain mapping, and canonical governance queries. | May 2026 |
