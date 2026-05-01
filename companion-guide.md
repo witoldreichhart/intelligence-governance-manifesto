@@ -1,6 +1,6 @@
 # Intelligence Governance Manifesto — Companion Guide
 
-**Witold Reichhart and Arnaud Gelas**
+**[Witold Reichhart](https://github.com/witoldreichhart) and [Arnaud Gelas](https://github.com/arnaudgelas)**
 
 This guide provides operational detail for the concepts introduced in the manifesto. It covers the claim model, the memory spectrum, worked examples, engagement archetypes, and boundary conditions for regulated industries.
 
