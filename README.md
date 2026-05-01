@@ -1,8 +1,8 @@
-# The Intelligence Governance Manifesto
+# Intelligence Governance Manifesto
 
 **Principles for governing the domain intelligence that AI systems depend on.**
 
-By [Witold Reichhart](https://www.linkedin.com/in/witoldreichhart/) and [Arnaud Gelas](https://github.com/arnaudgelas)
+By Witold Reichhart and Arnaud Gelas
 
 ---
 
@@ -35,13 +35,12 @@ This manifesto defines the structure.
 
 | Document | What it covers |
 |---|---|
-| [**manifesto.md**](manifesto.md) | Core manifesto: why this exists, six values with rationale, the intelligence lifecycle, definition of done, failure modes |
-| [**manifesto-principles.md**](manifesto-principles.md) | Twelve principles with minimum bars, organised in two parts: Intelligence Architecture (1-5) and Intelligence Operations (6-12) |
-
-### Coming next
-
-- **Companion guide** — worked examples, the claim model in detail, L1/L2/L3 memory spectrum, engagement archetypes, boundary conditions for regulated industries
-- **Organisational playbook** — four governance roles, build plan (10-14 weeks per domain), adoption path, metrics
+| **[manifesto.md](manifesto.md)** | Core manifesto: why this exists, six values with rationale, the intelligence lifecycle, definition of done, failure modes |
+| **[manifesto-principles.md](manifesto-principles.md)** | Twelve principles with minimum bars, organised in two parts: Intelligence Architecture (1-5) and Intelligence Operations (6-12) |
+| **[companion-guide.md](companion-guide.md)** | The claim model in detail, L1/L2/L3 memory spectrum, confidence levels and thresholds, engagement archetypes, authority conflict resolution, boundary conditions |
+| **[implementation-guide.md](implementation-guide.md)** | Five maturity levels, phased adoption sequence, metrics, epistemic circuit breakers, decay triage at scale, common failure patterns |
+| **[domains/financial-services.md](domains/financial-services.md)** | Principle-by-principle mapping to FS regulations: EU AI Act, SR 11-7, DORA, MiFID II, BCBS 239, GDPR |
+| **[governance/queries.md](governance/queries.md)** | 25 canonical intelligence governance queries across six governance concerns |
 
 ---
 
@@ -49,13 +48,13 @@ This manifesto defines the structure.
 
 This manifesto governs what agents **know**. The [Agentic Engineering Manifesto](https://github.com/arnaudgelas/agentic-engineering-manifesto) by Arnaud Gelas governs what agents **do**.
 
-Together they form the full stack for deploying AI safely in regulated industries. See the [connection section](manifesto.md#connection-to-the-agentic-engineering-manifesto) for how they work in tandem.
+Together they form the full stack for deploying AI safely in regulated industries. See the connection section in manifesto.md for how they work in tandem.
 
 ---
 
 ## Contributing
 
-We welcome critique, challenge, and contribution. See [CONTRIBUTING.md](CONTRIBUTING.md).
+We welcome critique, challenge, and contribution. See CONTRIBUTING.md.
 
 This is a living document. Intelligence governance is a new discipline — the principles will evolve as implementations test them.
 
@@ -63,6 +62,6 @@ This is a living document. Intelligence governance is a new discipline — the p
 
 ## License
 
-This work is licensed under [Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](https://creativecommons.org/licenses/by-sa/4.0/).
+This work is licensed under Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
 
 You are free to share and adapt this material for any purpose, including commercial, as long as you give appropriate credit and distribute your contributions under the same license.
