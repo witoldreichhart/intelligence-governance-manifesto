@@ -3,7 +3,9 @@
 **Principles for governing the domain intelligence that AI systems depend on.**
 
 *Authors: **[Witold Reichhart](https://github.com/witoldreichhart) and [Arnaud Gelas](https://github.com/arnaudgelas)***
-*Version: 1.2 — May 2026*
+*Version: 1.3 — May 2026*
+
+> **Terminology note (v1.3).** The IGM tier system previously called "confidence" is renamed **epistemic tier** to free *confidence* for its AEM verification meaning. Tier names (Provisional → Candidate → Confirmed → High Confidence → Authoritative) and semantics are unchanged. See [manifesto-principles.md](manifesto-principles.md) for the full note and the unified glossary's term-collision appendix.
 
 ---
 
@@ -43,6 +45,25 @@ This hierarchy prevents two errors. The first is treating knowledge infrastructu
 
 The intelligence lifecycle specified below maintains the substrate. What agents do with that substrate — from executing assigned tasks (autonomy) to surfacing action opportunities aligned with institutional purpose before being asked (initiative) — depends on the depth, fertility, and governance integrity of what the lifecycle produces. Shallow substrate supports autonomy. Deep, governed, continuously enriched substrate supports initiative. The manifesto governs the substrate. What emerges on top is determined by how well the substrate is built and maintained.
 
+### Which layer are you governing?
+
+The IGM uses two layering schemes that readers sometimes conflate. They are orthogonal and both are needed.
+
+The **three-level hierarchy** above (*Knowledge → Organizational Intelligence → Governed Intelligence*) describes **what is being produced**: structured content, the institutional capacity to reason over it, the capacity that emerges when capable models operate over governed knowledge. It is an external lens — what the institution offers to the world.
+
+The **L1 / L2 / L3 memory layers** (specified in `manifesto-principles.md` Principle 9) describe **where intelligence physically lives** at decision time: working memory loaded for an action (L1), the curated domain graph (L2), the foundational structural knowledge that rarely changes (L3). It is an internal lens — what the system holds and where.
+
+| If your governance question is about… | …you are governing this layer | Primary controls |
+|---|---|---|
+| Whether the institution can reason and act reliably | Governed intelligence (the outcome) | All sixteen principles operating in concert; governance relocation is the emergent indicator |
+| Whether the institution can perceive patterns and select action opportunities | Organizational intelligence (the capacity) | Principles 8, 9, 10, 13, 16; substrate depth, fertility, validation events |
+| Whether structured claims with provenance, tier, scope are present | Knowledge (the content) | Principles 1, 2, 3, 4, 5, 7; the intelligence lifecycle on L2 |
+| What the agent or practitioner has loaded right now | L1 (working memory) | Scope-match enforcement, freshness gates, tier floors, contradiction surfacing |
+| What the institution has curated and connected | L2 (institutional memory) | The full intelligence lifecycle; epistemic debt is the L2 health metric |
+| What rarely changes but cascades when it does | L3 (foundational intelligence) | Change detection with cascade analysis; human-reviewed L3 revalidation |
+
+A useful rule of thumb: the *three-level hierarchy* answers the question "what does this manifesto produce?"; the *L1/L2/L3 layers* answer the question "where does the next decision come from?". The lifecycle and the principles operate at L2 (and detect L3 changes); agents act on L1 assembled from L2; what emerges from this — when relocation has occurred — is governed intelligence.
+
 ---
 
 ## Six Values
@@ -76,7 +97,9 @@ In regulated environments, the gap between documented process and operational pr
 
 Not all conflicts are the same. The system must distinguish between genuine logical contradictions, jurisdictional divergences, temporal supersession, scope variations, and extraction errors. When UK CREST diverges from EU CSDR on settlement penalty calculations, this is a jurisdictional divergence — both positions are valid within their jurisdiction. A system that "resolves" this by choosing one has destroyed the information that a cross-border settlement programme must handle both regimes simultaneously.
 
-In regulated workflows, material unresolved contradictions may require operational halt until human resolution — not just visibility, but action constraint.
+**Preserve always; halt action conditionally.** Contradictions are always preserved as first-class objects — never silently overwritten. Whether a contradiction additionally *halts action* is a separate, narrower decision: action is halted when the contradiction is **material** to the action being taken **and** the action's consequence class is **High or Critical** (per the epistemic-circuit-breaker spec in `manifesto-principles.md` Principle 11). Material contradictions on Low or Medium-consequence actions surface as warnings; immaterial contradictions (out-of-scope, superseded, extraction-error pending review) do not gate action at all. Preservation is universal; halting is consequence-class-gated.
+
+When an agent's reasoning chain encounters a contradiction at runtime, the response is governed by the canonical decision tree in [`/integration/contradiction-handling-decision-tree.md`](../integration/contradiction-handling-decision-tree.md), which maps `contradiction-type × consequence-class × claim-tier` to a response class (Block / Escalate / Restrict scope / Advisory only / Continue with enhanced monitoring) per AEnt-M Principle 11. The substrate's preservation of the contradiction (this Value) is unchanged by the runtime response — IGM preserves; the decision tree determines what the agent does with what is preserved.
 
 ### Value 4 — Continuous curation over periodic review
 
@@ -118,6 +141,8 @@ Governance does not disappear. Its enforcement locus migrates from synchronous p
 
 This is governance relocation — the operational locus shifting from external rules to substrate-resident structure. It is the mechanism that converts a governed knowledge base into a substrate for institutional initiative. And it is measurable: declining governance intervention rates with stable or improving decision quality indicate relocation. Flat or rising rates indicate insufficient substrate depth.
 
+The specific quantitative signals — leading indicators (provenance completeness, claims-within-revalidation-window, contradictions-with-assigned-review, authority assignment, feedback-loop completion), lagging indicators (epistemic-debt ratio, circuit-breaker activation trend, governance interventions per 1,000 agent actions, time-to-revalidate, scope-mismatch incidents), and the inverse-indicator framing of circuit-breaker frequency — are specified in `implementation-guide.md` ("Metrics") and `manifesto-principles.md` Principle 11. For the regulated-industry mapping (CSDR / DORA / EU AI Act / MiFID II) of these signals onto first-, second-, and third-line oversight, see `domains/financial-services.md`.
+
 ---
 
 ## The Domain Graph
@@ -156,6 +181,20 @@ Eight criteria for a domain's intelligence to be operationally ready:
 6. **Traceable** — Every agent-consumed claim traceable from action to claim to source
 7. **Accountable** — Governance roles staffed, authority boundaries documented, escalation paths defined
 8. **Funded** — Ongoing curation capacity allocated, priced into the commercial model, and protected from delivery reallocation
+
+---
+
+## Substrate Integrity — Four Additional Principles (v1.3)
+
+Beyond the twelve principles that describe what the substrate looks like and how to run it, four further principles address what protects it once it is treated as load-bearing infrastructure for AI agents. These are stated in full in [manifesto-principles.md](manifesto-principles.md); the short form is:
+
+**Principle 13 — Claims must be validatable, not only corroborated.** Multiple sources agreeing is necessary but insufficient. Promotion above Supported requires a recorded *validation event* against an observable reality not used as a corroborating source — regulatory text for regulatory claims, system behaviour for operational claims, transaction data for procedural claims. This wires IGM to AEM Principle 8 (*Evaluations are the contract*) and prevents *confidence laundering* — high tier earned by stacking weak corroboration.
+
+**Principle 14 — Claims are attack surfaces.** The substrate is a high-value asset and must be threat-modelled. Threats include claim poisoning, provenance spoofing, tier manipulation, indirect prompt injection in Ingest, contradiction injection, and insider tampering by authority-holders. Mitigations include cryptographic provenance signatures, write-path access controls separated from read-path, integrity monitoring, quarterly red-team of the graph itself, and a named substrate-security owner distinct from the four governance authorities. This wires IGM to AEM Principle 10 (*Assume emergence; engineer containment*) for adversarial failure.
+
+**Principle 15 — Architectural enforcement is assumed, not provided.** IGM governs the knowledge layer. Architectural defense-in-depth — machine-enforced policies, repository gates, type contracts, lint rules, domain ownership maps, CI checks, runtime sandboxes — is delegated to AEM Principle 3. A perfectly governed knowledge base on an architecturally unprotected system is a liability. IGM operational readiness requires evidence that AEM Principle 3 is implemented for the consuming system.
+
+**Principle 16 — Containment is required for substrate-driven emergence.** Multi-agent systems reading and writing the same substrate produce emergent behaviour that no single agent's design accounts for: feedback loops, cascading promotions, self-corroborating false claims, contradiction churn. Containment requires rate limits on tier promotions per source per window, detection of self-corroboration cycles, circuit breakers on cascading retirements, and an audit trail of which agents touched which claims. This wires IGM to AEM Principle 10 for emergent failure in the knowledge layer.
 
 ---
 
@@ -199,17 +238,31 @@ The intelligence lifecycle produces supervisory observables: contradiction resol
 
 ## Connection to the Agentic Governance Stack
 
-This manifesto governs the intelligence substrate — what agents know. It sits within a five-layer governance architecture:
+This manifesto governs the intelligence substrate — what agents know. It is **one layer in the agentic governance stack**, with explicit dependency direction:
+
+```
+Agentic Engineering Manifesto (AEM)
+   ├─ Agentic SDLC (ASDLC) — engineering-side governance of agent-built code
+   ├─ Agentic Product Lifecycle (APLC) — product-side governance of agent behavior
+   ├─ Intelligence Governance Manifesto (IGM) — substrate that agents reason over
+   └─ Agentic Enterprise Manifesto (AEnt-M) — enterprise coordination of multiple agents on a shared substrate
+       ├─ depends on IGM (substrate)
+       └─ inherits AEM principles
+```
+
+This diagram is the canonical statement of the relationship. It supersedes any earlier "complementary" or "companion" framing in the IGM document set. See [`/agentic-governance-stack.md`](../agentic-governance-stack.md) for the canonical one-page reference.
+
+The layered relationship in narrative form:
 
 | Layer | Scope | Governs | Source |
 |---|---|---|---|
-| **Engineering** | How human-agent loops build software | The engineering process | [Agentic Engineering Manifesto](https://github.com/arnaudgelas/agentic-engineering-manifesto) (Gelas) |
-| **Delivery** | How agent-built software reaches production | The delivery pipeline | [ASDLC](https://github.com/arnaudgelas/asdlc) (Gelas) |
-| **Product** | How agent products behave in production | Individual agent behavior | [APLC](https://github.com/arnaudgelas/aplc) (Gelas) |
-| **Intelligence** | What agents know and how knowledge is maintained | The shared substrate | This manifesto (Reichhart and Gelas) |
-| **Enterprise** | How governed agents on governed intelligence produce institutional value | The organization | [Agentic Enterprise Manifesto](https://github.com/witoldreichhart/agentic-enterprise-manifesto) (Reichhart and Gelas) |
+| **Engineering (AEM)** | How human-agent loops build software | The engineering process | [Agentic Engineering Manifesto](https://github.com/arnaudgelas/agentic-engineering-manifesto) (Gelas) |
+| **Delivery (ASDLC)** | How agent-built software reaches production | The delivery pipeline | [ASDLC](https://github.com/arnaudgelas/asdlc) (Gelas) |
+| **Product (APLC)** | How agent products behave in production | Individual agent behavior | [APLC](https://github.com/arnaudgelas/aplc) (Gelas) |
+| **Intelligence (IGM)** | What agents know and how knowledge is maintained | The shared substrate | This manifesto (Reichhart and Gelas) |
+| **Enterprise (AEnt-M)** | How governed agents on governed intelligence produce institutional value | The organization | [Agentic Enterprise Manifesto](https://github.com/witoldreichhart/agentic-enterprise-manifesto) (Reichhart and Gelas) |
 
-Each layer is necessary. None is sufficient alone.
+IGM inherits AEM principles (the substrate-building loop is itself an agentic engineering system) and is required by AEnt-M (the enterprise coordinates over the substrate IGM defines). IGM is standalone-usable only when its consuming agents are built and operated inside an AEM-conformant engineering loop or an equivalent declared substitute; the standalone-usable claim is conditional, not free.
 
 The accountability chain runs through all five layers. The Engineering Manifesto traces an agent's action to the specification that authorised it. The ASDLC traces the specification to the delivery pipeline that produced it. The APLC traces the product behavior to its composite state. This manifesto traces the intelligence to its governed claims. Together: a complete, auditable chain from what the agent did, through the constraint that allowed it, the product that contained it, the pipeline that delivered it, to the knowledge that justified it.
 
@@ -228,3 +281,5 @@ The bridge to agent governance is specific. The Engineering Manifesto's Principl
 | v1.0 | Initial publication | April 2026 |
 | v1.1 | KM lineage acknowledged, contradiction taxonomy, regulatory alignment, failure modes expanded, provenance integrity, Expand guardrails. See detailed changelog in repo history. | April 2026 |
 | v1.2 | Added "Intelligence, Not Knowledge" section defining organizational intelligence. Added governance relocation mechanism to lifecycle. Added domain graph as enterprise substrate. Updated connection section to five-layer governance stack. Linked to companion guide, implementation guide, FS domain mapping, and canonical governance queries. | May 2026 |
+| v1.3 | Renamed "confidence" → "epistemic tier" (terminology note added). Added "Substrate Integrity — Four Additional Principles" section summarising new principles 13 (validatable claims, AEM P8 hook), 14 (claims as attack surfaces, AEM P10 hook for adversarial failure), 15 (architectural delegation to AEM P3), and 16 (containment for substrate-driven emergence, AEM P10 hook for emergent failure). Driven by IGM ↔ AEnt-M coherence review (B2 / B3 / W2.2 / W2.5). | May 2026 |
+| v1.3 | Internal coherence pass: tightened Value 3 (preserve always; halt action when contradiction is material AND consequence-class is High/Critical); added "Which layer are you governing?" section reconciling external three-level hierarchy with internal L1/L2/L3 layers; cross-referenced governance-relocation to implementation-guide metrics, principle 11 quantitative signals, and `domains/financial-services.md`. | May 2026 |

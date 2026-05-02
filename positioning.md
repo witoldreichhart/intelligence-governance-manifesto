@@ -88,4 +88,34 @@ The forcing function is not AI capability. It is AI consumption of institutional
 
 ---
 
-*This is a companion to the Intelligence Governance Manifesto (Reichhart and Gelas, 2026). Licensed under CC BY-SA 4.0.*
+## Position in the agentic governance stack
+
+This document is part of the Intelligence Governance Manifesto (IGM). IGM is **one layer in the agentic governance stack**, not a parallel companion to the other manifestos. The dependency direction is explicit:
+
+```
+Agentic Engineering Manifesto (AEM)
+   ├─ Agentic SDLC (ASDLC) — engineering-side governance of agent-built code
+   ├─ Agentic Product Lifecycle (APLC) — product-side governance of agent behavior
+   ├─ Intelligence Governance Manifesto (IGM) — substrate that agents reason over
+   └─ Agentic Enterprise Manifesto (AEnt-M) — enterprise coordination of multiple agents on a shared substrate
+       ├─ depends on IGM (substrate)
+       └─ inherits AEM principles
+```
+
+Earlier drafts of this document — and earlier drafts of the IGM `manifesto.md` — used the language of "companion" and "complementary" to describe the relationship between IGM and the rest of the stack. That framing is now retired. It conflated independence with parallelism. IGM is independent in the limited sense that it can be adopted on its own engineering-loop terms; it is not parallel to AEM, ASDLC, APLC, or AEnt-M. The relationship is layered.
+
+What this means in practice:
+
+- **IGM inherits AEM principles.** Any system that builds or operates an intelligence substrate is, by AEM's own scope, an agentic engineering system. AEM's twelve principles — outcomes (P1), specifications (P2), autonomy tiers (P5), knowledge & memory (P6), evaluations (P8), accountability (P12) — apply to the substrate-building loop itself. IGM extends and specialises P6 with claim-level governance, lifecycle, authority structure, and decay management. It does not replace AEM and is not coherent without it.
+- **IGM is required by AEnt-M.** AEnt-M coordinates *multiple* governed agents on a *shared* substrate. The substrate it coordinates over is the substrate IGM defines. An organisation that adopts AEnt-M without IGM has named the coordination problem without specifying what is coordinated. The dependency is structural, not stylistic.
+- **IGM is standalone-usable in a constrained sense.** A team building a single agent or a single workflow that needs governed claims, provenance, contradiction handling, and decay management can adopt IGM without adopting AEnt-M. *Then* the standalone-usable claim holds. The condition for that claim is precise:
+
+  > **If** the consuming agents are built and operated inside an AEM-conformant engineering loop (or an equivalent declared substitute), **then** IGM can be adopted independently of AEnt-M, ASDLC, and APLC. **If not**, IGM still defines the substrate but does not define how agents are built, delivered, or governed in production — those obligations are owed to AEM, ASDLC, and APLC respectively.
+
+- **IGM is not a substitute for AEM, ASDLC, APLC, or AEnt-M.** Each governs a different surface: engineering loop (AEM), delivery pipeline (ASDLC), individual product behaviour (APLC), substrate of governed claims (IGM), enterprise coordination (AEnt-M). Confusing one for another reproduces the failure modes IGM exists to prevent.
+
+For the canonical stack reference and term-collision preface, see [`/agentic-governance-stack.md`](../agentic-governance-stack.md). For the cross-manifesto authority and accountability mapping, see `governance/authority-accountability-matrix.md` (DRAFT — author review needed).
+
+---
+
+*This document is part of the Intelligence Governance Manifesto (Reichhart and Gelas, 2026). Licensed under CC BY-SA 4.0.*

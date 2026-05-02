@@ -22,7 +22,7 @@ Every governed claim carries ten properties:
 
 **Provenance chain** — How the claim arrived in the graph: source → extraction method → validation steps → current state.
 
-**Confidence level** — How much the system trusts the claim: Provisional → Candidate → Confirmed → High Confidence → Authoritative (see below).
+**Epistemic tier** *(was: confidence level)* — How much institutional support the claim carries under defined conditions: Provisional → Candidate → Confirmed → High Confidence → Authoritative (see below). Earned through a deterministic process, not assigned by judgment. The renaming from "confidence" frees that word for AEM-style verification meaning; tier names and semantics are unchanged.
 
 **Scope** — Where the claim is valid: jurisdiction, entity, process, system, temporal boundary, authority boundary. Example: Jurisdiction: EU. Process: settlement. System: TARGET2-Securities.
 
@@ -40,27 +40,27 @@ A claim is governable when it can be independently validated, updated, or contra
 
 The test: can a domain expert confirm or deny this specific assertion? Can a regulatory change invalidate it? Can another claim contradict it? If yes to any of these, it is a claim. If no to all three, it is commentary.
 
-### Confidence levels
+### Epistemic tiers (canonical table)
 
-Confidence is earned through a deterministic process, not assigned by human judgment.
+The canonical tier table is shared across `glossary.md`, this companion-guide, and `manifesto-principles.md` Principle 3. It is the single source of truth — earlier diverging phrasings are retired.
 
-| Level | Criteria | Permitted use |
+| Tier | Criteria | Permitted use |
 |---|---|---|
-| **Provisional** | Source identified, provenance recorded, no validation | Search results with caveat. Not for agent reasoning. |
-| **Candidate** | Passed structural checks (type, scope, temporal validity), awaiting expert review | Search results. Human-reviewed recommendations. Not for agent action. |
-| **Confirmed** | Expert-validated by one qualified domain practitioner | Search. Recommendations. Agent reasoning with confidence flag. |
-| **High Confidence** | Corroborated by two or more independent sources | Search. Recommendations. Agent reasoning. Agent action with audit trail. |
-| **Authoritative** | Corroborated, stable over time, traceable to primary regulatory or institutional source | Full use including regulatory evidence and autonomous agent action. |
+| **Provisional** | Source identified, provenance recorded, no validation. | Search results with caveat. Not for agent reasoning. |
+| **Candidate** | Passed structural checks (type, scope, temporal validity), awaiting expert review. | Search results. Human-reviewed recommendations. Not for agent action. |
+| **Confirmed** | Expert-validated by one qualified domain practitioner. | Search. Recommendations. Agent reasoning with epistemic-tier flag. |
+| **High Confidence** | Corroborated by two or more independent sources. | Search. Recommendations. Agent reasoning. Agent action with audit trail. |
+| **Authoritative** | Corroborated, stable over time, traceable to primary regulatory or institutional source. | Full use including regulatory evidence and autonomous agent action. |
 
-Confidence moves in both directions. A High Confidence claim that loses a corroborating source drops to Confirmed. An Authoritative claim whose regulatory basis changes drops to Candidate pending revalidation.
+The tier moves in both directions. A High Confidence claim that loses a corroborating source drops to Confirmed. An Authoritative claim whose regulatory basis changes drops to Candidate pending revalidation.
 
 Corroboration requires independent origin. Two documents citing the same source count as one corroboration. An AI extraction and its source document count as one corroboration. Multiple copies of the same LLM-generated output count as zero corroboration.
 
-### Confidence-to-action thresholds
+### Epistemic-tier-to-action thresholds
 
 The higher the autonomy of the consumer, the stronger the epistemic requirements:
 
-| Consumer type | Minimum confidence for action | Rationale |
+| Consumer type | Minimum tier for action | Rationale |
 |---|---|---|
 | Human expert reviewing results | Provisional | Expert can compensate for uncertainty |
 | Human with AI recommendation | Candidate | Recommendation carries implicit authority |
@@ -72,7 +72,9 @@ The higher the autonomy of the consumer, the stronger the epistemic requirements
 
 ## The Memory Spectrum: L1, L2, L3
 
-Intelligence in a governed system operates at three layers. Each has different characteristics, different governance requirements, and different decay profiles.
+> **Normative status.** The L1/L2/L3 model below is **normative** under `manifesto-principles.md` Principle 9 (*The graph must support structured inquiry, not just retrieval*). It is restated here in prescriptive form to align with the lifecycle tense in the manifesto. Earlier descriptive phrasings ("L1 is…", "L3 changes are rare…") read as principle-level requirements, not optional descriptions.
+
+Intelligence in a governed system **must operate** at three layers. Each carries different characteristics, governance requirements, and decay profiles, and each carries a distinct minimum bar (Principle 9).
 
 ### L1: Working Memory — Claims at the Point of Decision
 
