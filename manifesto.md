@@ -3,9 +3,9 @@
 **Principles for governing the domain intelligence that AI systems depend on.**
 
 *Authors: **[Witold Reichhart](https://github.com/witoldreichhart) and [Arnaud Gelas](https://github.com/arnaudgelas)***
-*Version: 1.3 — May 2026*
+*Version: 1.4 — May 2026*
 
-> **Terminology note (v1.3).** The IGM tier system previously called "confidence" is renamed **epistemic tier** to free *confidence* for its AEM verification meaning. Tier names (Provisional → Candidate → Confirmed → High Confidence → Authoritative) and semantics are unchanged. See [manifesto-principles.md](manifesto-principles.md) for the full note and the unified glossary's term-collision appendix.
+> **Terminology note (v1.4).** Supersedes v1.3's "rename confidence → epistemic tier." The IGM uses three terms with a clean division of labour: **confidence** (human-facing presentation-layer term — decks, dashboards, informal scoring), **epistemic tier** (formal governance term for the four discrete evidence levels: **Provisional → Emerging → Validated → Foundational**, mapped 1:1 to consequence classes), and **epistemic quality** (composite assessment of a reasoning chain, surfaced at decision time). Tier names always pair with "epistemic tier" — never with "confidence". The four-tier ladder is a clean break from the v1.0–v1.3 five-tier vocabulary (Provisional → Candidate → Confirmed → High Confidence → Authoritative). See [manifesto-principles.md](manifesto-principles.md) for the full note and the unified glossary's term-collision appendix for cross-version mappings.
 
 ---
 
@@ -127,7 +127,7 @@ Intelligence follows a continuous lifecycle. Any system that treats these stages
 
 **Expand** → Generate claims the graph suggests should exist. Gap detection, cross-domain links, frontier expansion. Creates new nodes. Expand produces acquisition hypotheses and gap candidates — never operational claims. Every suggestion enters the standard validation pipeline. Nothing reaches operational use without human approval.
 
-**Apply** → Deliver the relevant subgraph to a specific task. Confidence filtering, depth control, role-scoping. Observations feed back to Ingest. Extracts context.
+**Apply** → Deliver the relevant subgraph to a specific task. Epistemic-tier filtering, depth control, role-scoping. Observations feed back to Ingest. Extracts context.
 
 Not sequential — concurrent. All five stages run continuously. Every engagement is both consumer and generator of intelligence. Usage reveals deficiency. The graph improves the more it is used.
 
@@ -157,7 +157,7 @@ The domain graph satisfies four properties:
 
 **Scope** — domain-specific knowledge between public domain (regulations, standards) and client-walled (engagement-specific). The shared institutional substrate.
 
-**Provenance** — every claim carries source, validation status, confidence tier, temporal validity, and named authority. Governed L3 knowledge, not accumulated reference material.
+**Provenance** — every claim carries source, validation status, epistemic tier, temporal validity, and named authority. Governed L3 knowledge, not accumulated reference material.
 
 **Compounding** — each engagement that operates on the domain graph enriches it. Gaps identified, claims validated against operational reality, cross-domain edges discovered. The graph grows by generation — each use producing new connections — rather than by accumulation alone. This is fertility: the rate at which existing knowledge generates new knowledge through operation.
 
@@ -175,7 +175,7 @@ Eight criteria for a domain's intelligence to be operationally ready:
 
 1. **Populated** — Claims ingested from all major source types (documentary, expert, operational)
 2. **Connected** — Entity resolution complete, cross-domain links established, contradiction map current
-3. **Validated** — Domain expert review complete, confidence tiers assigned, provenance verified
+3. **Validated** *(domain-level criterion; distinct from the Validated epistemic tier — see glossary)* — Domain expert review complete, epistemic tiers assigned across the domain's claims, provenance verified
 4. **Governed** — Four authorities assigned to named roles, decay monitoring active, revision workflow operational
 5. **Applied** — At least one delivery engagement consuming intelligence with active feedback loop
 6. **Traceable** — Every agent-consumed claim traceable from action to claim to source
@@ -188,7 +188,7 @@ Eight criteria for a domain's intelligence to be operationally ready:
 
 Beyond the twelve principles that describe what the substrate looks like and how to run it, four further principles address what protects it once it is treated as load-bearing infrastructure for AI agents. These are stated in full in [manifesto-principles.md](manifesto-principles.md); the short form is:
 
-**Principle 13 — Claims must be validatable, not only corroborated.** Multiple sources agreeing is necessary but insufficient. Promotion above Supported requires a recorded *validation event* against an observable reality not used as a corroborating source — regulatory text for regulatory claims, system behaviour for operational claims, transaction data for procedural claims. This wires IGM to AEM Principle 8 (*Evaluations are the contract*) and prevents *confidence laundering* — high tier earned by stacking weak corroboration.
+**Principle 13 — Claims must be validatable, not only corroborated.** Multiple sources agreeing is necessary but insufficient. Promotion to the **Validated** epistemic tier requires a recorded *validation event* against an observable reality not used as a corroborating source — regulatory text for regulatory claims, system behaviour for operational claims, transaction data for procedural claims. This wires IGM to AEM Principle 8 (*Evaluations are the contract*) and prevents *confidence laundering* — high epistemic tier earned by stacking weak corroboration.
 
 **Principle 14 — Claims are attack surfaces.** The substrate is a high-value asset and must be threat-modelled. Threats include claim poisoning, provenance spoofing, tier manipulation, indirect prompt injection in Ingest, contradiction injection, and insider tampering by authority-holders. Mitigations include cryptographic provenance signatures, write-path access controls separated from read-path, integrity monitoring, quarterly red-team of the graph itself, and a named substrate-security owner distinct from the four governance authorities. This wires IGM to AEM Principle 10 (*Assume emergence; engineer containment*) for adversarial failure.
 
@@ -202,13 +202,13 @@ Beyond the twelve principles that describe what the substrate looks like and how
 
 No framework is immune to misuse. These are the ways intelligence governance fails in practice:
 
-**Intelligence theatre.** Claims are created but never curated. The graph grows but doesn't improve. Confidence tiers exist on paper but nobody challenges or updates them. The system looks governed but is actually static. *Symptom: high claim count, zero contradictions detected, zero confidence changes in 90 days.*
+**Intelligence theatre.** Claims are created but never curated. The graph grows but doesn't improve. Epistemic tiers exist on paper but nobody challenges or updates them. The system looks governed but is actually static. *Symptom: high claim count, zero contradictions detected, zero epistemic-tier changes in 90 days.*
 
 **Authority vacuum.** The four authorities are defined in a document nobody reads. No individual owns governance in practice. Claims are created by whoever is available and never reviewed. *Symptom: no claim promotions or retirements in a quarter.*
 
 **Extraction without feedback.** Intelligence flows from the graph to engagements but observations never flow back. The graph becomes a one-way repository — a more expensive version of what it replaced. *Symptom: zero feedback events per engagement.*
 
-**Decay denial.** The graph is treated as correct-once-built. No decay monitoring. Claims from three years ago carry the same confidence as claims from last week. *Symptom: no staleness alerts, no validity windows set.*
+**Decay denial.** The graph is treated as correct-once-built. No decay monitoring. Claims from three years ago carry the same epistemic tier as claims from last week. *Symptom: no staleness alerts, no validity windows set.*
 
 **Over-governance.** Every claim requires approval from multiple authorities. Curation overhead exceeds the value of the intelligence. The system is technically governed and practically unusable. *Symptom: curation backlog growing faster than delivery demand.*
 
@@ -216,7 +216,7 @@ No framework is immune to misuse. These are the ways intelligence governance fai
 
 **Epistemic monoculture.** The governed intelligence base becomes the institution's only recognised memory. Communities of practice, apprenticeship, and informal knowledge-sharing wither. Diverse ways of knowing collapse into whatever the claim schema can represent. *Symptom: experts consult the graph instead of each other; knowledge that doesn't fit the claim schema is treated as non-existent.*
 
-**Adversarial compromise.** The intelligence base is treated as a trusted internal system without integrity controls. Claim injection, provenance spoofing, or confidence manipulation go undetected. *Symptom: no integrity verification on provenance chains; no anomaly detection on claim creation or promotion patterns.*
+**Adversarial compromise.** The intelligence base is treated as a trusted internal system without integrity controls. Claim injection, provenance spoofing, or epistemic-tier manipulation go undetected. *Symptom: no integrity verification on provenance chains; no anomaly detection on claim creation or promotion patterns.*
 
 All of these failure modes have cultural preconditions. Governance architecture is necessary but not sufficient. The organisational playbook (companion document) addresses adoption, incentive design, and change management.
 
@@ -228,11 +228,11 @@ This manifesto is designed for regulated industries. Its governance model maps t
 
 **First line** — domain teams operating assertion and semantic authority. They create, validate, and curate claims within their operational scope. Responsible for intelligence quality at the point of use.
 
-**Second line** — revision authority and independent validation. Reviews confidence tiers, challenge history, contradiction resolution, and compliance of the intelligence base with regulatory requirements. Does not create claims — validates and challenges them.
+**Second line** — revision authority and independent validation. Reviews epistemic tiers, challenge history, contradiction resolution, and compliance of the intelligence base with regulatory requirements. Does not create claims — validates and challenges them.
 
-**Third line** — external audit using the traceability chain. The provenance, confidence history, and decision logs produced by the governance model create the audit trail that third-line assurance requires.
+**Third line** — external audit using the traceability chain. The provenance, epistemic-tier history (the audit-trail formal name for what is colloquially called "confidence history"), and decision logs produced by the governance model create the audit trail that third-line assurance requires.
 
-The intelligence lifecycle produces supervisory observables: contradiction resolution activity, confidence tier movements, claim retirement rates, feedback loop metrics, and staleness alerts. Absence of these signals is itself a red flag.
+The intelligence lifecycle produces supervisory observables: contradiction resolution activity, epistemic-tier movements, claim retirement rates, feedback loop metrics, and staleness alerts. Absence of these signals is itself a red flag.
 
 ---
 
@@ -283,3 +283,4 @@ The bridge to agent governance is specific. The Engineering Manifesto's Principl
 | v1.2 | Added "Intelligence, Not Knowledge" section defining organizational intelligence. Added governance relocation mechanism to lifecycle. Added domain graph as enterprise substrate. Updated connection section to five-layer governance stack. Linked to companion guide, implementation guide, FS domain mapping, and canonical governance queries. | May 2026 |
 | v1.3 | Renamed "confidence" → "epistemic tier" (terminology note added). Added "Substrate Integrity — Four Additional Principles" section summarising new principles 13 (validatable claims, AEM P8 hook), 14 (claims as attack surfaces, AEM P10 hook for adversarial failure), 15 (architectural delegation to AEM P3), and 16 (containment for substrate-driven emergence, AEM P10 hook for emergent failure). Driven by IGM ↔ AEnt-M coherence review (B2 / B3 / W2.2 / W2.5). | May 2026 |
 | v1.3 | Internal coherence pass: tightened Value 3 (preserve always; halt action when contradiction is material AND consequence-class is High/Critical); added "Which layer are you governing?" section reconciling external three-level hierarchy with internal L1/L2/L3 layers; cross-referenced governance-relocation to implementation-guide metrics, principle 11 quantitative signals, and `domains/financial-services.md`. | May 2026 |
+| v1.4 | **Supersedes v1.3 rename.** Three-term division of labour: *confidence* (presentation), *epistemic tier* (formal governance), *epistemic quality* (composite reasoning chain). Leakage rule: tier names pair only with "epistemic tier". **Tier-ladder rename and 5→4 collapse:** Provisional → Candidate → Confirmed → High Confidence → Authoritative ⇒ Provisional → Emerging → Validated → Foundational. P11 consequence-class mapping is now 1:1 (Provisional ↔ Low, Emerging ↔ Medium, Validated ↔ High, Foundational ↔ Critical). P3 retitled "Epistemic tier is earned, not assigned"; P13 promotion threshold updated to "Validated"; Substrate Integrity short forms updated. v1.0–v1.3 tier names remap per the unified glossary's term-collision appendix. | May 2026 |

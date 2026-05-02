@@ -37,7 +37,7 @@ This manifesto defines the structure.
 |---|---|
 | [manifesto.md](manifesto.md) | Core manifesto: why this exists, six values, intelligence lifecycle, governance relocation, domain graph, definition of done, failure modes |
 | [manifesto-principles.md](manifesto-principles.md) | Twelve principles with minimum bars: Intelligence Architecture (1-5) and Intelligence Operations (6-12) |
-| [companion-guide.md](companion-guide.md) | Claim model, L1/L2/L3 memory spectrum, confidence levels and thresholds, engagement archetypes, authority conflicts, boundary conditions |
+| [companion-guide.md](companion-guide.md) | Claim model, L1/L2/L3 memory spectrum, epistemic-tier ladder and thresholds, engagement archetypes, authority conflicts, boundary conditions |
 | [implementation-guide.md](implementation-guide.md) | Five maturity levels, phased adoption, metrics, epistemic circuit breakers, decay triage, failure patterns |
 | [glossary.md](glossary.md) | Term definitions as used in this framework |
 | [positioning.md](positioning.md) | How intelligence governance differs from data governance, knowledge management, knowledge graphs, and RAG |

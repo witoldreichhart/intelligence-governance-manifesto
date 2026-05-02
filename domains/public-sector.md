@@ -33,7 +33,7 @@ DRAFT — public-law SME review needed: National-level constitutional and admini
 
 ### Principle 1: The claim is the unit
 
-**Public-sector application.** Statutes, regulations, ministerial guidance, and administrative-court precedents are currently governed at the document level — the agency "has" the latest text of the statute on a shared drive. Intelligence governance moves this to claim level: "Article X of Statute Y, as amended by Decree Z (date D), requires that benefit applicants demonstrate residence for at least 12 months" is a governed claim with provenance, scope (which subset of applicants), temporal validity (since amendment D), and epistemic tier (Authoritative — primary statutory text in current consolidated form).
+**Public-sector application.** Statutes, regulations, ministerial guidance, and administrative-court precedents are currently governed at the document level — the agency "has" the latest text of the statute on a shared drive. Intelligence governance moves this to claim level: "Article X of Statute Y, as amended by Decree Z (date D), requires that benefit applicants demonstrate residence for at least 12 months" is a governed claim with provenance, scope (which subset of applicants), temporal validity (since amendment D), and epistemic tier (Foundational — primary statutory text in current consolidated form, structurally integrated).
 
 **Regulatory connection.** Administrative-law duty to give reasons requires that decisions reference specific provisions, not entire statutes. The claim model operationalises this at the knowledge level: each cited rule is a governed claim with metadata sufficient to reconstruct why it applied to this case at this time.
 
@@ -53,11 +53,11 @@ DRAFT — public-law SME review needed: National-level constitutional and admini
 
 ### Principle 3: Epistemic tier is earned, not assigned
 
-**Public-sector application.** A consolidated statutory text from the official gazette carries a different epistemic tier than a ministerial FAQ; a binding judicial precedent carries a different tier than a single first-instance decision. The five tiers (Provisional through Authoritative) gate what actions agents may take. Provisional or Candidate-tier claims (e.g. extracted from an unannotated draft circular) cannot drive an enforceable benefit determination.
+**Public-sector application.** A consolidated statutory text from the official gazette carries a different epistemic tier than a ministerial FAQ; a binding judicial precedent carries a different tier than a single first-instance decision. The four tiers (Provisional → Emerging → Validated → Foundational) gate what actions agents may take. Provisional- or Emerging-tier claims (e.g. extracted from an unannotated draft circular) cannot drive an enforceable benefit determination.
 
-**Regulatory connection.** EU AI Act Article 10 (data governance for high-risk systems) and Article 9 (risk management) presuppose that the system can distinguish authoritative from less-supported inputs. Intelligence governance operationalises this through tiers.
+**Regulatory connection.** EU AI Act Article 10 (data governance for high-risk systems) and Article 9 (risk management) presuppose that the system can distinguish primary-source legal authority from less-supported inputs. Intelligence governance operationalises this through tiers (and, in colloquial / decision-time framing, through the corresponding *epistemic quality* summary surfaced to the human reviewer).
 
-**Worked example.** An agent considering whether a particular activity is regulated must distinguish an Authoritative claim from a current statute, a High-Confidence claim from a published implementing regulation, and a Candidate claim from a leaked draft circular. The first two may inform an enforceable position; the third cannot.
+**Worked example.** An agent considering whether a particular activity is regulated must distinguish a Foundational-tier claim from a current statute, a Validated-tier claim from a published implementing regulation, and an Emerging-tier claim from a leaked draft circular. The first two may inform an enforceable position; the third cannot.
 
 **Gap addressed.** Current public-sector knowledge bases treat all entries as roughly equivalent once curated. AI extraction from policy guidance and direct statutory citation carry similar weight in retrieval. Tiering prevents agents from acting on weakly supported public-law claims with the authority of statutory text.
 
@@ -123,7 +123,7 @@ DRAFT — public-law SME review needed: The specific hierarchy and direct-effect
 
 ### Principle 8: Expert knowledge is a point of view, not ground truth
 
-**Public-sector application.** A senior caseworker knows things no manual captures. A policy officer knows the negotiating history that shaped a regulation. That knowledge is governable — but a single expert's claim about legal interpretation cannot reach Authoritative tier without independent corroboration. The system governs the *epistemic tier with which it acts on that claim* based on evidentiary standing, not seniority.
+**Public-sector application.** A senior caseworker knows things no manual captures. A policy officer knows the negotiating history that shaped a regulation. That knowledge is governable — but a single expert's claim about legal interpretation cannot reach Validated tier (let alone Foundational) without independent corroboration *and* a recorded validation event (Principle 13). The system governs the *epistemic tier with which it acts on that claim* based on evidentiary standing, not seniority.
 
 **Regulatory connection.** Equal-treatment and reasoned-decision doctrine resist opaque expert-driven decisions. Intelligence governance requires that any expert claim used to inform an agent action be exposed and tier-bound.
 

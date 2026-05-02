@@ -36,7 +36,7 @@ DRAFT — counsel review needed: The Data Act's interaction with GDPR (especiall
 
 ### Principle 1: The claim is the unit
 
-**Personal-data application.** Personal-data systems currently govern at the *record* level — an institution "has" a customer record with attributes. Intelligence governance moves this to claim level: "Subject S has consented to marketing email under lawful basis Article 6(1)(a) on date D, scope = direct-to-consumer offers from controller C, withdrawn date = null" is a governed claim with provenance, scope, temporal validity, and epistemic tier (Authoritative — captured at user interface with logged consent ceremony).
+**Personal-data application.** Personal-data systems currently govern at the *record* level — an institution "has" a customer record with attributes. Intelligence governance moves this to claim level: "Subject S has consented to marketing email under lawful basis Article 6(1)(a) on date D, scope = direct-to-consumer offers from controller C, withdrawn date = null" is a governed claim with provenance, scope, temporal validity, and epistemic tier (Foundational — captured at user interface with logged consent ceremony, primary-source traceable, structurally integrated).
 
 **Regulatory connection.** GDPR Article 5(1)(d) (accuracy) and Article 25 (data protection by design) imply assertion-level governance: a record may be partly accurate and partly stale. The claim model expresses this directly.
 
@@ -56,11 +56,11 @@ DRAFT — counsel review needed: The Data Act's interaction with GDPR (especiall
 
 ### Principle 3: Epistemic tier is earned, not assigned
 
-**Personal-data application.** A claim asserted by the data subject themselves (e.g. self-declared employment status) carries a different epistemic tier than a claim inferred by a model from behavioural signals. Both may be useful; they have different evidentiary standing for different uses. The five tiers (Provisional through Authoritative) gate what actions an agent may take. Inferences that drive Article 22 decisions cannot rest on Provisional or Candidate tiers.
+**Personal-data application.** A claim asserted by the data subject themselves (e.g. self-declared employment status) carries a different epistemic tier than a claim inferred by a model from behavioural signals. Both may be useful; they have different evidentiary standing for different uses. The four tiers (Provisional → Emerging → Validated → Foundational) gate what actions an agent may take. Inferences that drive Article 22 decisions cannot rest on Provisional or Emerging tiers — Article 22 maps to High consequence, which requires ≥ Validated.
 
 **Regulatory connection.** GDPR Article 5(1)(d) (accuracy), Article 22 (constraints on solely automated decisions). Intelligence governance operationalizes accuracy through tiers that gate action.
 
-**Worked example.** A "high creditworthiness" claim inferred at Candidate tier is suitable for ranking marketing audiences but not for declining a credit application. Tiering enforces this without ad-hoc per-feature rules.
+**Worked example.** A "high creditworthiness" claim inferred at Emerging tier is suitable for ranking marketing audiences (Medium consequence) but not for declining a credit application (High consequence — requires Validated). Tiering enforces this without ad-hoc per-feature rules.
 
 **Gap addressed.** Current personal-data systems treat all attributes as equally reliable once stored. An attribute self-declared by the subject and one inferred by a profiling model carry the same weight in retrieval. Tiering prevents agents from acting on weakly supported personal-data claims with the same authority as well-supported ones.
 
@@ -70,7 +70,7 @@ DRAFT — counsel review needed: The Data Act's interaction with GDPR (especiall
 
 **Regulatory connection.** GDPR Article 16 (rectification) requires that contradictions raised by data subjects be processable and resolvable. Article 5(1)(d) (accuracy) requires that inaccurate data be erased or rectified "without delay." Intelligence governance types contradictions and preserves them with their context, which is a precondition for handling rectification correctly.
 
-**Worked example.** A data subject corrects their date of birth via a DSAR response. The corrected claim must supersede the prior claim — but the prior claim cannot be silently overwritten if downstream agents have already acted on it (e.g. age-gated service decisions). The contradiction must be typed (data-subject correction = temporal supersession plus authoritative-source promotion) and the propagation must be governed.
+**Worked example.** A data subject corrects their date of birth via a DSAR response. The corrected claim must supersede the prior claim — but the prior claim cannot be silently overwritten if downstream agents have already acted on it (e.g. age-gated service decisions). The contradiction must be typed (data-subject correction = temporal supersession plus primary-source promotion to Foundational tier) and the propagation must be governed.
 
 **Gap addressed.** Current personal-data systems force resolution. Intelligence governance preserves contradictions with their type — including data-subject corrections, source-of-truth divergence, temporal supersession, and extraction errors.
 
@@ -125,7 +125,7 @@ DRAFT — counsel review needed: The Data Act's interaction with GDPR (especiall
 
 ### Principle 8: Expert knowledge is a point of view, not ground truth
 
-**Personal-data application.** A senior agent or analyst may have operational knowledge about a specific subject or segment. That knowledge is governable but cannot reach Authoritative tier without independent corroboration — and cannot be used as a basis for an Article 22 decision on its own. The expert's view is a Capture-mode claim subject to the same epistemic tiering as any other source.
+**Personal-data application.** A senior agent or analyst may have operational knowledge about a specific subject or segment. That knowledge is governable but cannot reach Validated tier (let alone Foundational) without independent corroboration *and* a recorded validation event (Principle 13) — and cannot be used as a basis for an Article 22 decision on its own. The expert's view is a Capture-mode claim subject to the same epistemic tiering as any other source.
 
 **Regulatory connection.** GDPR Article 5(1)(a) (fairness) and Article 22 protect against opaque, individually-asserted bases for automated decisions.
 
@@ -137,7 +137,7 @@ DRAFT — counsel review needed: The Data Act's interaction with GDPR (especiall
 
 ### Principle 10: Every engagement feeds the graph
 
-**Personal-data application.** Every DSAR, every rectification request, every erasure request, every consent withdrawal is a feedback event. These should not be processed as exceptions; they are observations about the substrate's correctness from the only source whose claims about a subject are authoritative — the subject. Three structured capture points: at request intake (what does the graph claim about this subject?), during fulfilment (what corrections / disposals were required?), at close-out (what claim-level lessons propagate to similar subjects?).
+**Personal-data application.** Every DSAR, every rectification request, every erasure request, every consent withdrawal is a feedback event. These should not be processed as exceptions; they are observations about the substrate's correctness from the only source whose claims about a subject can reach Foundational tier — the subject. Three structured capture points: at request intake (what does the graph claim about this subject?), during fulfilment (what corrections / disposals were required?), at close-out (what claim-level lessons propagate to similar subjects?).
 
 **Regulatory connection.** GDPR Articles 12(3)–(4) (timeliness and reasoned response), Article 16 (rectification), Article 17 (erasure). Intelligence governance treats DSAR responses as first-class feedback into the substrate, not as a parallel compliance workflow.
 

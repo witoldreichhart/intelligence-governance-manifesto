@@ -4,7 +4,15 @@
 
 Terms as used in the Intelligence Governance Manifesto, companion guide, and implementation guide. Definitions are scoped to this framework — some terms carry broader meanings elsewhere.
 
-> **Terminology note (v1.3).** What earlier IGM revisions called *confidence level* / *confidence tier* is renamed **epistemic tier** to free the word *confidence* for AEM-style verification meaning ("did the change pass the gates we agreed on?"). The five tier names (Provisional → Candidate → Confirmed → High Confidence → Authoritative) and their semantics are unchanged. References to "confidence" in the body text of v1.0–v1.2 should be read as "epistemic tier" unless the surrounding text refers to AEM verification confidence. See the term-collision appendix at the end of this glossary for cross-framework mappings.
+> **Terminology note (v1.4).** Supersedes v1.3's "rename confidence → epistemic tier." The IGM now uses three terms with a clean division of labour:
+>
+> - **Confidence** — the human-facing, presentation-layer term. Used in decks, client conversations, dashboards, and informal scoring ("confidence scoring", "confidence history", "what's the confidence on this claim?"). Intuitive, no glossary required.
+> - **Epistemic tier** — the formal governance term for the four discrete, named evidence levels: **Provisional → Emerging → Validated → Foundational**. Used in manifesto principles, governance schemas, machine-readable constraint documents, audit trails, and consequence-class mappings. Mapped 1:1 to the four consequence classes (Provisional ↔ Low, Emerging ↔ Medium, Validated ↔ High, Foundational ↔ Critical).
+> - **Epistemic quality** — the composite assessment of a *reasoning chain* (not a single claim). Surfaces at decision time and at circuit-breaker activation. Distinct from epistemic tier, which is per-claim.
+>
+> **Leakage rule.** The tier names (Provisional, Emerging, Validated, Foundational) only ever pair with "epistemic tier" — never with "confidence." The phrase "confidence tier" is deprecated; use "epistemic tier" for the discrete system or "confidence" for the colloquial sense.
+>
+> **Clean-break tier ladder.** The four-tier ladder replaces the five-tier vocabulary used through v1.3 (Provisional → Candidate → Confirmed → High Confidence → Authoritative). For mappings to v1.0–v1.3 references, external decks, and third-party tooling that still use older names, see the term-collision appendix at the end of this glossary.
 
 ---
 
@@ -28,23 +36,28 @@ Terms as used in the Intelligence Governance Manifesto, companion guide, and imp
 
 ## Epistemic Tiers and Trust
 
-**Epistemic tier** *(was: confidence level)* — How much institutional support a claim carries under defined conditions. Earned through a deterministic process, not assigned by judgment. Five tiers: Provisional → Candidate → Confirmed → High Confidence → Authoritative. The tier moves in both directions. It does not certify truth. It does not remove the need for scope judgment. It does not authorise action by itself. *Backward-compat note: v1.0–v1.2 of the IGM used "confidence level" and "confidence tier" for this concept; references to "confidence" in those revisions read as "epistemic tier" unless the surrounding text refers to AEM verification confidence.*
+**Epistemic tier** — The formal governance term for how much institutional support a claim carries under defined conditions. Earned through a deterministic process, not assigned by judgment. Four discrete tiers: **Provisional → Emerging → Validated → Foundational**. The tier moves in both directions. It does not certify truth. It does not remove the need for scope judgment. It does not authorise action by itself. The colloquial / presentation-layer term for the same property is **confidence** (see terminology note above); tier names always pair with "epistemic tier", not "confidence."
 
 The canonical tier table — single source of truth, aligning manifesto, companion-guide and glossary:
 
-| Tier | Criteria | Permitted use |
-|---|---|---|
-| **Provisional** | Source identified, provenance recorded, no validation. | Search results with caveat. Not for agent reasoning. |
-| **Candidate** | Passed structural checks (type, scope, temporal validity), awaiting expert review. | Search results. Human-reviewed recommendations. Not for agent action. |
-| **Confirmed** | Expert-validated by one qualified domain practitioner. | Search. Recommendations. Agent reasoning with epistemic-tier flag. |
-| **High Confidence** | Corroborated by two or more independent sources. | Search. Recommendations. Agent reasoning. Agent action with audit trail. |
-| **Authoritative** | Corroborated, stable over time, traceable to primary regulatory or institutional source. | Full use including regulatory evidence and autonomous agent action. |
+| Tier | Criteria | Permitted use | Maps to consequence class |
+|---|---|---|---|
+| **Provisional** | Source identified, provenance recorded, no validation. The claim exists but hasn't been tested. | Search results with caveat. Not for agent reasoning. | Low |
+| **Emerging** | Structural checks passed (type, scope, temporal validity, extraction verified), consistent with at least one other source. The claim is forming. | Search. Human-reviewed recommendations. Agent reasoning with epistemic-tier flag. | Medium |
+| **Validated** | Expert-reviewed or independently corroborated, plus a recorded validation event against an observable reality not used as a corroborating source (Principle 13). Stable across review cycles, no active contradictions. The claim has been tested. | Search. Recommendations. Agent reasoning. Agent action with audit trail. | High |
+| **Foundational** | Traceable to primary regulatory or institutional source, stable across extended periods, structurally integrated into the substrate. The claim is institutional bedrock. | Full use including regulatory evidence and autonomous agent action. | Critical |
+
+The semantic progression is evidence accumulation: a claim starts as a placeholder (Provisional), forms through structural checks and corroboration (Emerging), is tested against reality through a validation event (Validated), and proves stable and structurally integrated over time (Foundational). Each tier name is a plain-English word that a CTO and a regulator both understand without a glossary.
 
 **Provenance** — Where a claim came from, how it was validated, when it was last challenged, and what corroborates it. Includes source type, date of acquisition, acquisition mode, and the social process of challenge and acceptance. Provenance chains must be verifiable for integrity, not just recorded.
 
 **Corroboration** — Independent evidence supporting a claim. Requires independent origin — two documents citing the same source count as one corroboration. Multiple copies of the same LLM-generated output count as zero.
 
-**Epistemic-tier-to-action threshold** *(was: confidence-to-action threshold)* — The minimum epistemic tier required before a claim may be used for a given action type. The higher the autonomy of the consumer, the stronger the epistemic requirements. A human expert reviewing results needs only Provisional. An agent acting autonomously requires High Confidence. Regulatory evidence submission requires Authoritative.
+**Validation event** — A check of a claim against an observable reality that was *not* itself used as a corroborating source. Regulatory claims validate against regulatory text in primary form; operational claims validate against system behaviour, transaction data, or reproducible operational evidence; procedural claims validate against the recorded execution of the procedure. Recorded as a first-class object with method, evidence, date, and named validator. Distinct from corroboration: corroboration tells you sources agree; validation tells you sources agree with reality. **Promotion to the Validated epistemic tier requires at least one recorded validation event** (Principle 13). Validation events themselves carry decay windows.
+
+**Epistemic-tier-to-action threshold** — The minimum epistemic tier required before a claim may be used for a given action type. Under the v1.4 ladder, thresholds map 1:1 to consequence classes: a Low-consequence action requires ≥ Provisional, Medium ≥ Emerging, High ≥ Validated, Critical ≥ Foundational. The higher the autonomy of the consumer, the stronger the epistemic requirements. A human expert reviewing results needs only Provisional; an agent acting autonomously in a regulated workflow requires Validated; regulatory evidence submission requires Foundational.
+
+**Epistemic quality** — The composite assessment of a *reasoning chain* (not a single claim). Surfaces at decision time and at circuit-breaker activation. Where epistemic tier is per-claim and discrete, epistemic quality summarises the chain: the lowest-tier claim in the chain, the contradiction profile, the freshness profile, the scope-match profile, and the provenance-integrity profile, expressed as a structured object that informs the human reviewer at the point of escalation. Defined as a distinct term so that "epistemic tier" (per-claim) and "epistemic quality" (per-chain) do not collapse into a single ambiguous concept.
 
 ---
 
@@ -65,8 +78,8 @@ The canonical tier table — single source of truth, aligning manifesto, compani
 | Mode | Description | Typical entry tier |
 |---|---|---|
 | **Harvest** | Automated, public sources, lowest cost, highest volume. | Provisional |
-| **Extract** | Tool-assisted from credentialed sources (project archives, vendor portals, defect logs). | Provisional → Candidate |
-| **Capture** | Human-led structured interviews, most expensive, captures operational knowledge. | Candidate (single SME) → Confirmed (validated) |
+| **Extract** | Tool-assisted from credentialed sources (project archives, vendor portals, defect logs). | Provisional → Emerging |
+| **Capture** | Human-led structured interviews, most expensive, captures operational knowledge. | Emerging (single SME) → Validated (with corroboration and recorded validation event) |
 | **Emerge** | Graph self-extension; connections and gaps the system surfaces. | Hypothesis only — never operational |
 
 Emerge produces hypotheses requiring validation, never operational claims.
@@ -79,7 +92,7 @@ Emerge produces hypotheses requiring validation, never operational claims.
 - **Operational** — describes how a process is currently run, including workarounds. Decays fastest (typically 30–90 days); a workaround valid last quarter may not survive a system upgrade.
 - **External** — externally observed phenomena (vendor configurations, third-party APIs, market data definitions). Decays per release cadence of the external source; bound to monitorable change events.
 
-A fourth class — **Foundational/L3** — applies to deep structural knowledge (regulatory architectures, domain mechanics) that decays rarely but cascades widely; revalidation is event-driven, not schedule-driven. *DRAFT — author review needed: confirm whether decay-class taxonomy is normative or illustrative.*
+A fourth class — **Foundational/L3 decay class** — applies to deep structural knowledge (regulatory architectures, domain mechanics) that decays rarely but cascades widely; revalidation is event-driven, not schedule-driven. *DRAFT — author review needed: confirm whether decay-class taxonomy is normative or illustrative.* *Naming note (v1.4): "Foundational" labels both this decay class (and the L3 layer it tracks) and the highest epistemic tier; the two are orthogonal — see "Notes on terminology collisions" below.*
 
 **Governance status** — What action may be taken from a claim: Searchable, Recommendable, Reasoning-eligible, Action-eligible, or Regulatory-evidence. Distinct from epistemic tier — governance status reflects institutional permission, not epistemic strength.
 
@@ -109,7 +122,7 @@ A fourth class — **Foundational/L3** — applies to deep structural knowledge 
 
 **Intelligence theatre** — The failure mode where governance structures exist on paper but no claims are actually being revalidated, no contradictions reviewed, no engagement feedback captured. The governance is performative. Test: can the system answer IGQ-24 (epistemic debt load) with real numbers?
 
-> **Note on Level 2 "informal confidence" vs intelligence theatre.** Implementation-guide Level 2 ("Structured") describes confidence as *informal* — claims have sources, structure is queryable, but no deterministic tier criteria. Intelligence theatre is the failure mode where Level 2 confidence is *labelled as governed* without the deterministic criteria that distinguish Level 3+. Level 2 informal confidence is acceptable as a transient maturity stage on the path to Level 3; it is **not** acceptable as a steady state, and is **not** acceptable for any agent action above the Low consequence class. Systems that remain at Level 2 while presenting themselves as governed exhibit intelligence theatre.
+> **Note on Level 2 "informal confidence" vs intelligence theatre.** Implementation-guide Level 2 ("Structured") describes confidence as *informal* — claims have sources, structure is queryable, but no deterministic epistemic-tier criteria. Intelligence theatre is the failure mode where Level 2 informal confidence is *labelled as governed* without the deterministic tier criteria that distinguish Level 3+. Level 2 informal confidence is acceptable as a transient maturity stage on the path to Level 3; it is **not** acceptable as a steady state, and is **not** acceptable for any agent action above the Low consequence class. Systems that remain at Level 2 while presenting themselves as governed exhibit intelligence theatre. (This is the only place the IGM uses "informal confidence" as a term of art — it names a maturity-level descriptor, not a tier.)
 
 **Epistemic monoculture** — The failure mode where the governed intelligence base becomes the institution's only recognised memory. Communities of practice, apprenticeship, and informal knowledge-sharing wither. Diverse ways of knowing collapse into whatever the claim schema can represent. *Symptom: experts consult the graph instead of each other; knowledge that doesn't fit the claim schema is treated as non-existent.* Promoted from manifesto-only failure-modes section to a glossary-resident concept because it is referenced normatively in Principle 8 and the implementation-guide.
 
@@ -135,7 +148,7 @@ A fourth class — **Foundational/L3** — applies to deep structural knowledge 
 
 1. **Populated** — Claims ingested from all major source types (documentary, expert, operational).
 2. **Connected** — Entity resolution complete, cross-domain links established, contradiction map current.
-3. **Validated** — Domain expert review complete, epistemic tiers assigned, provenance verified.
+3. **Validated** *(domain-level criterion)* — Domain expert review complete, epistemic tiers assigned, provenance verified. Distinct from the **Validated epistemic tier** (claim-level); see "Notes on terminology collisions" below.
 4. **Governed** — Four authorities assigned to named roles, decay monitoring active, revision workflow operational.
 5. **Applied** — At least one delivery engagement consuming intelligence with active feedback loop.
 6. **Traceable** — Every agent-consumed claim traceable from action to claim to source.
@@ -152,14 +165,45 @@ For readers using IGM alongside the Agentic Engineering Manifesto (AEM) and the 
 
 | Term | IGM (this document) | AEM | AEnt-M |
 |---|---|---|---|
-| **Confidence** | Renamed to **epistemic tier** (this glossary) | Binary verification gate ("did the change pass the gates we agreed on") | Epistemic quality summary surfaced at decision time |
+| **Confidence** | Human-facing presentation-layer term (decks, dashboards, informal scoring). The discrete tiers are named "epistemic tier", not "confidence tier". | Binary verification gate ("did the change pass the gates we agreed on") | Epistemic quality summary surfaced at decision time |
+| **Epistemic tier** | Formal governance term for four discrete claim-evidence levels: Provisional → Emerging → Validated → Foundational. Maps 1:1 to consequence classes. | (not used) | (not used; prefer IGM term) |
+| **Epistemic quality** | Composite assessment of a *reasoning chain* (not a single claim); surfaces at decision time. | (not used; AEM uses "verification" instead) | Aligned with IGM usage |
 | **Knowledge** | Structured claims with provenance, epistemic tier, scope (L2/L3) | Durable curated facts (subset of IGM L2/L3) | Governed substrate (delegated to IGM) |
 | **Governance** | Knowledge-object stewardship | Agent-action oversight | Enterprise-coordination layer |
 | **Scope** | Claim validity context | Task / specification boundary | View filtering |
-| **Validation** | Domain-expert claim review (intake) | "Did we build the right thing" outcome validation | Delegated |
+| **Validation** | Domain-expert claim review (intake); also names the "Validated" epistemic tier and the "Validated" Definition-of-Done step (distinct scopes — see below). | "Did we build the right thing" outcome validation | Delegated |
 | **Initiative** | Substrate-depth-driven (Principle 10) | Not defined | Three-conditions-driven |
 
 When in doubt, prefer the IGM term in IGM contexts; the cross-references in `manifesto.md` and `manifesto-principles.md` flag boundary cases explicitly.
+
+### Mapping from prior IGM tier vocabularies
+
+| v1.0–v1.2 ("confidence") | v1.3 ("epistemic tier", 5 names) | v1.4 ("epistemic tier", 4 names — canonical) |
+|---|---|---|
+| Provisional | Provisional | **Provisional** |
+| Candidate | Candidate | **Emerging** |
+| Confirmed | Confirmed | **Validated** *(merged: Confirmed + High Confidence collapse into Validated, gated by P13 validation event)* |
+| High Confidence | High Confidence | **Validated** *(see above)* |
+| Authoritative | Authoritative | **Foundational** |
+
+Promotion to **Validated** under v1.4 is stricter than promotion to **Confirmed** under v1.0–v1.3: a recorded validation event (Principle 13) is required, not just expert review. Materials referencing the v1.0–v1.3 names should be remapped per this table; where evidence is insufficient for the v1.4 Validated bar, claims drop to Emerging until a validation event is recorded.
+
+### Notes on terminology collisions inside IGM
+
+The v1.4 tier ladder introduces two same-word collisions with pre-existing IGM concepts. Both operate at *different scopes* and are kept separate by always pairing the word with its scope qualifier in formal writing.
+
+**"Foundational" overload.** Three IGM uses share the word:
+- **L3 / Foundational intelligence** — the deepest memory layer (deep structural knowledge: regulatory architectures, domain mechanics, institutional patterns).
+- **Foundational decay class** — the decay-class label aligned with L3-resident claims (revalidated event-driven, not schedule-driven).
+- **Foundational epistemic tier** *(new in v1.4)* — the highest claim-level evidence tier (primary-source, structurally integrated).
+
+The first two are aligned (the L3 layer's decay class is, by construction, Foundational). The third is *orthogonal*: a claim's tier is about evidence quality; its layer/decay class is about structural depth. In well-governed systems most L3 claims are at Foundational tier, but not all Foundational-tier claims are L3 (an operational claim with primary-source traceability and sustained stability can reach Foundational tier without being L3). **In formal writing, always disambiguate: "Foundational tier", "L3 layer", "Foundational decay class".**
+
+**"Validated" overload.** Two IGM uses share the word:
+- **Validated epistemic tier** *(new in v1.4)* — the claim-level evidence tier requiring expert review or independent corroboration plus a recorded validation event (P13).
+- **Validated Definition-of-Done step** — the domain-level readiness criterion (item 3 of the Definition of Done): the *domain* has been validated when expert review is complete, epistemic tiers are assigned across the domain's claims, and provenance is verified.
+
+These operate at different scopes: the tier is per-claim, the DoD step is per-domain. In formal writing prefer "Validated tier" for the claim-level concept and "Validated DoD step" or "domain-validated" for the domain-level concept.
 
 ---
 

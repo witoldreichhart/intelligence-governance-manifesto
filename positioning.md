@@ -38,7 +38,7 @@ Knowledge management asks: can we find what we know? Intelligence governance ask
 
 Knowledge graphs structured domain knowledge as entities, relationships, and properties. At their best, they made institutional knowledge queryable, traversable, and machine-readable. Some implementations included provenance, confidence, and temporal validity.
 
-The gap: most enterprise knowledge graphs were populated once and maintained rarely. They solved the structure problem — how to represent knowledge — but not the lifecycle problem — how to keep it current, how to manage contradictions, how to detect decay, how to govern what agents may do with different confidence levels. A knowledge graph that was accurate when built and has not been maintained for eighteen months is not a governed intelligence base. It is a liability with a schema.
+The gap: most enterprise knowledge graphs were populated once and maintained rarely. They solved the structure problem — how to represent knowledge — but not the lifecycle problem — how to keep it current, how to manage contradictions, how to detect decay, how to govern what agents may do with different epistemic tiers. A knowledge graph that was accurate when built and has not been maintained for eighteen months is not a governed intelligence base. It is a liability with a schema.
 
 Intelligence governance uses graph structures. It adds the continuous lifecycle — Ingest, Consolidate, Curate, Expand, Apply — that keeps the graph operationally current and governed for machine consumption.
 
@@ -62,9 +62,9 @@ RAG asks: what is relevant to this query? Intelligence governance asks: what is 
 
 The discipline sits at the intersection of these traditions and adds what none of them provides on its own:
 
-**Claim-level governance.** The unit is not a document, not a record, not a passage — it is a governed assertion with type, provenance, confidence, scope, temporal validity, contradiction status, and governance status.
+**Claim-level governance.** The unit is not a document, not a record, not a passage — it is a governed assertion with type, provenance, epistemic tier, scope, temporal validity, contradiction status, and governance status.
 
-**Confidence that gates action.** Confidence is earned through a deterministic process and determines what agents may do. Provisional claims support search. Authoritative claims support regulatory evidence. The mapping from confidence to permitted action is explicit and auditable.
+**Epistemic tier that gates action.** Epistemic tier is earned through a deterministic process and determines what agents may do. Provisional claims support search. Foundational claims support regulatory evidence. The four-tier ladder (Provisional → Emerging → Validated → Foundational) maps 1:1 to consequence classes (Low → Medium → High → Critical), and the mapping from tier to permitted action is explicit and auditable. (When this property is referred to colloquially in decks or client conversations, it is called *confidence*; the formal governance term is *epistemic tier*.)
 
 **Contradiction as information.** Conflicts between claims are preserved, typed, and governed — not auto-resolved. Jurisdictional divergences, temporal supersessions, and logical contradictions carry different operational implications.
 
@@ -74,7 +74,7 @@ The discipline sits at the intersection of these traditions and adds what none o
 
 **Four governance authorities.** Semantic, assertion, inference, and revision authority are explicitly assigned. Every claim-affecting action maps to exactly one authority. Ungoverned authorities produce ungoverned graphs.
 
-**Regulatory traceability.** Every agent action in a regulated workflow traces from the action through the claims that informed it, their confidence tiers and provenance chains, to the sources. The chain is traversable in seconds for audit and examination.
+**Regulatory traceability.** Every agent action in a regulated workflow traces from the action through the claims that informed it, their epistemic tiers and provenance chains, to the sources. The chain is traversable in seconds for audit and examination.
 
 ---
 
@@ -82,7 +82,7 @@ The discipline sits at the intersection of these traditions and adds what none o
 
 None of this was urgent when the primary consumer of institutional knowledge was a human professional exercising interpretive judgment at human speed. Humans compensate for ungoverned knowledge — they check sources, weigh reliability informally, notice when something feels stale, and escalate when uncertain.
 
-AI agents do none of these things unless the system is built to make them do it. An agent consuming an ungoverned intelligence base at machine speed will act on stale claims, reason through untyped contradictions, and execute at high consequence levels on Provisional-confidence assertions — fluently, confidently, and at scale.
+AI agents do none of these things unless the system is built to make them do it. An agent consuming an ungoverned intelligence base at machine speed will act on stale claims, reason through untyped contradictions, and execute at high consequence levels on Provisional-tier assertions — fluently, confidently, and at scale.
 
 The forcing function is not AI capability. It is AI consumption of institutional knowledge under regulatory constraint. That specific combination — machine speed, institutional knowledge, regulated environment — is what creates the requirement for a new discipline. Intelligence governance is the discipline.
 

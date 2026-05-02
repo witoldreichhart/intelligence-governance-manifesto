@@ -32,7 +32,7 @@ DRAFT — domain expert review needed: Whether an institution-specific AI clinic
 
 ### Principle 1: The claim is the unit
 
-**Healthcare application.** Clinical guidelines, formulary rules, contraindications, and care-pathway steps are currently governed at the document level — the institution "has" the latest USPSTF recommendation documented in a guideline binder. Intelligence governance moves this to claim level: "USPSTF 2024 recommends biennial mammography screening for women aged 40-74 at average risk (Grade B)" is a governed claim with provenance, scope (US adults, average-risk population), temporal validity (since the 2024 update), and epistemic tier (Authoritative — primary guideline source).
+**Healthcare application.** Clinical guidelines, formulary rules, contraindications, and care-pathway steps are currently governed at the document level — the institution "has" the latest USPSTF recommendation documented in a guideline binder. Intelligence governance moves this to claim level: "USPSTF 2024 recommends biennial mammography screening for women aged 40-74 at average risk (Grade B)" is a governed claim with provenance, scope (US adults, average-risk population), temporal validity (since the 2024 update), and epistemic tier (Foundational — primary guideline source, structurally integrated).
 
 **Regulatory connection.** HIPAA Security Rule 164.312(c)(1) requires integrity controls "to protect electronic protected health information from improper alteration or destruction." The claim model operationalizes this at the knowledge level — each PHI-derived claim carries the metadata needed to assess accuracy, completeness, and integrity over time.
 
@@ -52,11 +52,11 @@ DRAFT — domain expert review needed: Whether an institution-specific AI clinic
 
 ### Principle 3: Epistemic tier is earned, not assigned
 
-**Healthcare application.** A peer-reviewed Cochrane systematic review carries a different epistemic tier than a single observational study; an institutional clinical pathway carries a different tier than a single attending's stated practice. The five epistemic tiers (Provisional through Authoritative) map to clinical evidence hierarchies: a Provisional claim is usable for clinician-facing reference but not for autonomous agent recommendation in a patient encounter.
+**Healthcare application.** A peer-reviewed Cochrane systematic review carries a different epistemic tier than a single observational study; an institutional clinical pathway carries a different tier than a single attending's stated practice. The four epistemic tiers (Provisional → Emerging → Validated → Foundational) map to clinical evidence hierarchies and to the four consequence classes (Low → Medium → High → Critical): a Provisional claim is usable for clinician-facing reference (Low consequence) but not for autonomous agent recommendation in a patient encounter (which requires Validated or Foundational depending on consequence class).
 
 **Regulatory connection.** FDA's Good Machine Learning Practice principles (joint FDA/Health Canada/MHRA guidance) require that training data and clinical evidence be appropriate for the intended use. Intelligence governance operationalizes this through epistemic tiers that gate what actions may be taken on each claim.
 
-**Worked example.** An agent considering a drug-drug interaction warning must distinguish between an Authoritative claim from FDA labelling, a High-Confidence claim from a major drug compendium, and a Candidate claim extracted from a single recent case report. All three may surface the same interaction; only the first two should suppress an order without explicit clinician override.
+**Worked example.** An agent considering a drug-drug interaction warning must distinguish between a Foundational-tier claim from FDA labelling, a Validated-tier claim from a major drug compendium, and an Emerging-tier claim extracted from a single recent case report. All three may surface the same interaction; only the first two should suppress an order without explicit clinician override.
 
 **Gap addressed.** Current clinical knowledge bases treat all entries as roughly equivalent once curated. An AI-extracted claim from a case report and a direct FDA black-box warning carry similar weight in retrieval. Tiering prevents agents from acting on weakly supported clinical claims with the same authority as well-supported ones.
 
@@ -119,11 +119,11 @@ DRAFT — clinical SME review needed: The specific guideline divergence above sh
 
 **Regulatory connection.** GDPR Article 9 explicit-consent and HIPAA authorisation requirements apply when Capture mode involves PHI or identifiable practitioner-patient context. Intelligence governance must support governed disposition for claims that intersect special-category personal data obligations.
 
-**Worked example.** A claim captured from a senior pharmacist about a workaround for a specific drug shortage must enter at Provisional or Candidate tier, not Authoritative. The pharmacist's expertise is real; the claim's evidentiary standing is what governs its agentic use.
+**Worked example.** A claim captured from a senior pharmacist about a workaround for a specific drug shortage must enter at Provisional or Emerging tier, not Foundational. The pharmacist's expertise is real; the claim's evidentiary standing is what governs its agentic use.
 
 ### Principle 8: Expert knowledge is a point of view, not ground truth
 
-**Healthcare application.** A senior attending knows things no guideline captures. A nurse manager knows operational reality the policy document does not describe. That knowledge is valuable and governable — but a single expert's clinical or operational claim cannot reach Authoritative tier without independent corroboration. The expert may be right. The system governs the *epistemic tier with which it acts on that claim* based on evidentiary standing, not personal authority.
+**Healthcare application.** A senior attending knows things no guideline captures. A nurse manager knows operational reality the policy document does not describe. That knowledge is valuable and governable — but a single expert's clinical or operational claim cannot reach Validated tier (let alone Foundational) without independent corroboration *and* a recorded validation event (Principle 13). The expert may be right. The system governs the *epistemic tier with which it acts on that claim* based on evidentiary standing, not personal authority.
 
 **Regulatory connection.** FDA Good Machine Learning Practice guidance warns against over-reliance on individual expert opinion in training and validation. Intelligence governance extends this principle to the knowledge substrate.
 
