@@ -90,7 +90,7 @@ The forcing function is not AI capability. It is AI consumption of institutional
 
 ## Position in the agentic governance stack
 
-This document is part of the Intelligence Governance Manifesto (IGM). IGM is **one layer in the agentic governance stack**, not a parallel companion to the other manifestos. The dependency direction is explicit:
+This document is part of the Intelligence Governance Manifesto (IGM). IGM and the other manifestos in the agentic governance stack govern *different surfaces*, not different altitudes — IGM specifies the substrate of governed claims; AEnt-M specifies how multiple agents coordinate over that substrate; AEM, ASDLC, and APLC specify how the agents themselves are built, delivered, and operated. The relationship between them is a **structural dependency, not a hierarchy**. The dependency direction is explicit:
 
 ```
 Agentic Engineering Manifesto (AEM)
@@ -102,7 +102,7 @@ Agentic Engineering Manifesto (AEM)
        └─ inherits AEM principles
 ```
 
-Earlier drafts of this document — and earlier drafts of the IGM `manifesto.md` — used the language of "companion" and "complementary" to describe the relationship between IGM and the rest of the stack. That framing is now retired. It conflated independence with parallelism. IGM is independent in the limited sense that it can be adopted on its own engineering-loop terms; it is not parallel to AEM, ASDLC, APLC, or AEnt-M. The relationship is layered.
+Earlier drafts of this document — and earlier drafts of the IGM `manifesto.md` — used the language of "companion" and "complementary" to describe the relationship between IGM and the rest of the stack. That framing conflated independence with parallelism and is now retired. The replacement is functional, not vertical: each manifesto governs a different surface, and they are connected by structural dependency. IGM is independent in the limited sense that it can be adopted on its own engineering-loop terms; it does not stand parallel to AEM, ASDLC, APLC, or AEnt-M, and it does not sit above or below them either.
 
 What this means in practice:
 

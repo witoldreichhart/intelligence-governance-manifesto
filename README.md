@@ -36,7 +36,7 @@ This manifesto defines the structure.
 | Document | What it covers |
 |---|---|
 | [manifesto.md](manifesto.md) | Core manifesto: why this exists, six values, intelligence lifecycle, governance relocation, domain graph, definition of done, failure modes |
-| [manifesto-principles.md](manifesto-principles.md) | Twelve principles with minimum bars: Intelligence Architecture (1-5) and Intelligence Operations (6-12) |
+| [manifesto-principles.md](manifesto-principles.md) | Twelve principles plus four integrity preconditions, each with minimum bars: Intelligence Architecture (1-5), Intelligence Operations (6-12), Substrate-Integrity Preconditions (13-16) |
 | [companion-guide.md](companion-guide.md) | Claim model, L1/L2/L3 memory spectrum, epistemic-tier ladder and thresholds, engagement archetypes, authority conflicts, boundary conditions |
 | [implementation-guide.md](implementation-guide.md) | Five maturity levels, phased adoption, metrics, epistemic circuit breakers, decay triage, failure patterns |
 | [glossary.md](glossary.md) | Term definitions as used in this framework |
@@ -48,7 +48,7 @@ This manifesto defines the structure.
 
 ## Position in the agentic governance stack
 
-The Intelligence Governance Manifesto (IGM) is **one layer in a layered stack**, not a free-standing companion. The dependency direction is explicit:
+The Intelligence Governance Manifesto (IGM) and the other manifestos in the agentic governance stack govern *different surfaces*, not different altitudes. The relationship is a **structural dependency, not a hierarchy** — IGM specifies the substrate of governed claims; AEnt-M specifies how agents coordinate over it; AEM, ASDLC, and APLC specify how the agents themselves are built, delivered, and operated. The dependency direction is explicit:
 
 ```
 Agentic Engineering Manifesto (AEM)
@@ -65,7 +65,7 @@ What this means for IGM:
 - **IGM inherits AEM principles.** AEM's twelve principles — outcomes, specifications, autonomy tiers, knowledge & memory (P6), evaluations (P8), accountability (P12) — apply to any system that builds, operates, or consumes a governed substrate. IGM specialises P6 and adds claim-level governance, lifecycle, and authority structure on top of the AEM contract; it does not replace it.
 - **IGM is required by AEnt-M.** The Agentic Enterprise Manifesto coordinates *multiple* governed agents on a *shared* substrate. That substrate is what IGM defines. AEnt-M Principle 1 ("the domain graph is enterprise infrastructure") and Principle 5 ("agents share a substrate; they do not share a mind") are unbuildable without IGM.
 - **IGM is standalone-usable when only one of the two sufficient conditions holds.** A single-team or single-agent context that needs governed claims, provenance, contradiction handling, and decay management can adopt IGM independently of AEnt-M — *if and only if* the consuming agents already operate inside an AEM-conformant engineering loop (or an equivalent declared substitute). IGM does not specify how agents are built or operated; that responsibility belongs to AEM, ASDLC, and APLC.
-- **IGM is not a "companion" to AEnt-M.** Earlier drafts framed the two as parallel companions. They are not. AEnt-M depends on IGM. IGM does not depend on AEnt-M.
+- **IGM and AEnt-M are connected by structural dependency, not by parity or altitude.** Earlier drafts framed the two as parallel companions; that framing is retired. AEnt-M depends on IGM (the substrate it coordinates over); IGM does not depend on AEnt-M. Neither sits above or below the other — they govern different surfaces.
 
 See [`/agentic-governance-stack.md`](../agentic-governance-stack.md) for the canonical one-page stack reference, [`glossary.md`](glossary.md) and the repo-root `glossary.md` for term-collision resolution, and `governance/governance-integration-note.md` (DRAFT — author review needed) and `governance/authority-accountability-matrix.md` (DRAFT — author review needed) for the cross-stack integration artefacts.
 
@@ -73,7 +73,7 @@ See [`/agentic-governance-stack.md`](../agentic-governance-stack.md) for the can
 
 ## Status
 
-Version 1.2 — May 2026. This is a living document. We welcome critical engagement.
+Version 1.5 — May 2026. This is a living document. We welcome critical engagement.
 
 ## License
 
