@@ -22,7 +22,7 @@ Every governed claim carries ten properties:
 
 **Provenance chain** — How the claim arrived in the graph: source → extraction method → validation steps → current state.
 
-**Confidence level** — How much the system trusts the claim: Provisional → Candidate → Confirmed → High Confidence → Authoritative (see below).
+**Epistemic tier** — The formal governance term for how much institutional support the claim carries under defined conditions. Four tiers: **Provisional → Emerging → Validated → Foundational** (see below). Earned through a deterministic process, not assigned by judgment. The colloquial / presentation-layer term for the same property is **confidence**; tier names always pair with "epistemic tier", not "confidence" (see the v1.4 terminology note in [manifesto-principles.md](manifesto-principles.md)).
 
 **Scope** — Where the claim is valid: jurisdiction, entity, process, system, temporal boundary, authority boundary. Example: Jurisdiction: EU. Process: settlement. System: TARGET2-Securities.
 
@@ -30,7 +30,7 @@ Every governed claim carries ten properties:
 
 **Contradiction status** — Whether conflicting claims exist. If active, typed as: jurisdictional, temporal, logical, scope, or extraction.
 
-**Dependencies** — What other claims this one rests on. Tracked for cascade analysis — if a dependency's confidence drops, everything downstream is flagged.
+**Dependencies** — What other claims this one rests on. Tracked for cascade analysis — if a dependency's epistemic tier drops, everything downstream is flagged.
 
 **Governance status** — What action may be taken from this claim: Searchable, Recommendable, Reasoning-eligible, Action-eligible, or Regulatory-evidence.
 
@@ -40,39 +40,40 @@ A claim is governable when it can be independently validated, updated, or contra
 
 The test: can a domain expert confirm or deny this specific assertion? Can a regulatory change invalidate it? Can another claim contradict it? If yes to any of these, it is a claim. If no to all three, it is commentary.
 
-### Confidence levels
+### Epistemic tiers (canonical table)
 
-Confidence is earned through a deterministic process, not assigned by human judgment.
+The canonical tier table is shared across `glossary.md`, this companion-guide, and `manifesto-principles.md` Principle 3. It is the single source of truth — earlier diverging phrasings are retired.
 
-| Level | Criteria | Permitted use |
-|---|---|---|
-| **Provisional** | Source identified, provenance recorded, no validation | Search results with caveat. Not for agent reasoning. |
-| **Candidate** | Passed structural checks (type, scope, temporal validity), awaiting expert review | Search results. Human-reviewed recommendations. Not for agent action. |
-| **Confirmed** | Expert-validated by one qualified domain practitioner | Search. Recommendations. Agent reasoning with confidence flag. |
-| **High Confidence** | Corroborated by two or more independent sources | Search. Recommendations. Agent reasoning. Agent action with audit trail. |
-| **Authoritative** | Corroborated, stable over time, traceable to primary regulatory or institutional source | Full use including regulatory evidence and autonomous agent action. |
+| Tier | Criteria | Permitted use | Maps to consequence class |
+|---|---|---|---|
+| **Provisional** | Source identified, provenance recorded, no validation. | Search results with caveat. Not for agent reasoning. | Low |
+| **Emerging** | Structural checks passed (type, scope, temporal validity, extraction verified), consistent with at least one other source. | Search. Human-reviewed recommendations. Agent reasoning with epistemic-tier flag. | Medium |
+| **Validated** | Expert-reviewed or independently corroborated, plus a recorded validation event against an observable reality not used as a corroborating source (Principle 13). Stable across review cycles, no active contradictions. | Search. Recommendations. Agent reasoning. Agent action with audit trail. | High |
+| **Foundational** | Traceable to primary regulatory or institutional source, stable across extended periods, structurally integrated into the substrate. | Full use including regulatory evidence and autonomous agent action. | Critical |
 
-Confidence moves in both directions. A High Confidence claim that loses a corroborating source drops to Confirmed. An Authoritative claim whose regulatory basis changes drops to Candidate pending revalidation.
+The tier moves in both directions. A Validated claim that loses a corroborating source or whose validation event has decayed drops to Emerging pending re-validation. A Foundational claim whose primary regulatory basis changes drops to Emerging pending revalidation through a fresh validation event.
 
 Corroboration requires independent origin. Two documents citing the same source count as one corroboration. An AI extraction and its source document count as one corroboration. Multiple copies of the same LLM-generated output count as zero corroboration.
 
-### Confidence-to-action thresholds
+### Epistemic-tier-to-action thresholds
 
 The higher the autonomy of the consumer, the stronger the epistemic requirements:
 
-| Consumer type | Minimum confidence for action | Rationale |
-|---|---|---|
-| Human expert reviewing results | Provisional | Expert can compensate for uncertainty |
-| Human with AI recommendation | Candidate | Recommendation carries implicit authority |
-| Agent reasoning within human review | Confirmed | Agent conclusions are checked before action |
-| Agent acting autonomously | High Confidence | No human compensation for bad knowledge |
-| Regulatory evidence submission | Authoritative | Regulatory standard of proof |
+| Consumer type | Minimum tier for action | Consequence class | Rationale |
+|---|---|---|---|
+| Human expert reviewing results | Provisional | Low | Expert can compensate for uncertainty |
+| Human with AI recommendation | Emerging | Medium | Recommendation carries implicit authority |
+| Agent reasoning within human review | Emerging | Medium | Agent conclusions are checked before action |
+| Agent acting autonomously | Validated | High | No human compensation for bad knowledge; P13 validation event required |
+| Regulatory evidence submission | Foundational | Critical | Regulatory standard of proof; primary-source traceability required |
 
 ---
 
 ## The Memory Spectrum: L1, L2, L3
 
-Intelligence in a governed system operates at three layers. Each has different characteristics, different governance requirements, and different decay profiles.
+> **Normative status.** The L1/L2/L3 model below is **normative** under `manifesto-principles.md` Principle 9 (*The graph must support structured inquiry, not just retrieval*). It is restated here in prescriptive form to align with the lifecycle tense in the manifesto. Earlier descriptive phrasings ("L1 is…", "L3 changes are rare…") read as principle-level requirements, not optional descriptions.
+
+Intelligence in a governed system **must operate** at three layers. Each carries different characteristics, governance requirements, and decay profiles, and each carries a distinct minimum bar (Principle 9).
 
 ### L1: Working Memory — Claims at the Point of Decision
 
@@ -80,9 +81,9 @@ What the agent or practitioner has loaded in active context at the moment of act
 
 **Characteristics:** Small. Relevant. Current. Scoped to the immediate task. Refreshed per decision cycle.
 
-**Governance concern:** What gets loaded into L1 determines the quality of every decision. If working memory includes stale claims, low-confidence assertions, or out-of-scope knowledge, the decision inherits those defects — regardless of how good the reasoning is.
+**Governance concern:** What gets loaded into L1 determines the quality of every decision. If working memory includes stale claims, low-tier assertions, or out-of-scope knowledge, the decision inherits those defects — regardless of how good the reasoning is.
 
-**Controls:** Scope-match enforcement (claims must match the task's declared scope). Freshness gates (stale claims flagged or excluded). Confidence floors (minimum confidence for inclusion varies by action type). Contradiction surfacing (if loaded claims contradict each other, the contradiction is visible, not silently resolved).
+**Controls:** Scope-match enforcement (claims must match the task's declared scope). Freshness gates (stale claims flagged or excluded). Epistemic-tier floors (minimum tier for inclusion varies by action type, mapped 1:1 to consequence class). Contradiction surfacing (if loaded claims contradict each other, the contradiction is visible, not silently resolved).
 
 ### L2: Institutional Memory — The Governed Domain Graph
 
@@ -98,7 +99,7 @@ The curated, validated, connected knowledge that the institution has accumulated
 
 The deep structural knowledge that changes rarely but shapes everything: domain mechanics, regulatory architectures, institutional patterns, professional archetypes. L3 is the geological layer — it moves slowly but everything above rests on it.
 
-**Characteristics:** Stable. Deeply connected. High confidence. Rarely updated but when it changes, everything above may shift.
+**Characteristics:** Stable. Deeply connected. Typically at Foundational epistemic tier. Rarely updated but when it changes, everything above may shift.
 
 **Governance concern:** L3 changes are rare but high-impact. When a foundational regulatory framework changes (Basel III to Basel IV, MiFID II amendments, new EU AI Act obligations), the cascading effects touch every L2 claim that depends on the changed L3 structure.
 
@@ -130,7 +131,7 @@ First engagement in a new domain. The graph is sparse or empty. Almost everythin
 
 **Risk:** Building fast on unvalidated foundations. The pressure to populate the graph quickly can compromise provenance discipline. Every shortcut taken during domain entry becomes epistemic debt that compounds through every subsequent engagement.
 
-**Minimum bar:** No claim enters without source provenance. No entity is unified without confidence scoring. Contradictions are typed even if resolution is deferred.
+**Minimum bar:** No claim enters without source provenance. No entity is unified without epistemic-tier scoring. Contradictions are typed even if resolution is deferred.
 
 ### Archetype 2: Domain Deepening
 
@@ -150,7 +151,7 @@ The engagement spans two or more domains that were previously governed independe
 
 **Risk:** Scope confusion. A claim validated in one domain may not be valid when applied across the boundary. Scope metadata becomes critical — every cross-domain edge must carry scope qualifiers.
 
-**Minimum bar:** Cross-domain claims carry explicit scope limitations. No claim is promoted to High Confidence based on single-domain evidence when it is being used in a cross-domain context.
+**Minimum bar:** Cross-domain claims carry explicit scope limitations. No claim is promoted to the Validated epistemic tier based on single-domain evidence when it is being used in a cross-domain context.
 
 ### Archetype 4: Regulatory Change
 
@@ -172,9 +173,9 @@ The four governance authorities (semantic, assertion, inference, revision) will 
 
 Within-scope conflicts (two authorities disagree about a claim within one domain) are resolved by the assertion authority for factual disputes and the semantic authority for structural disputes. If they disagree with each other, the revision authority adjudicates.
 
-Cross-scope conflicts (a decision in one domain affects governance in another) are escalated to the knowledge governance committee — or whatever institutional body has cross-domain authority. The key constraint: escalation has a deadline. A conflict that remains unresolved for more than 10 business days must be escalated. A conflict that remains unresolved for more than 30 business days triggers a temporary governance hold on affected claims — they remain in the graph but are flagged as governance-pending, which lowers their effective confidence for agent action thresholds.
+Cross-scope conflicts (a decision in one domain affects governance in another) are escalated to the knowledge governance committee — or whatever institutional body has cross-domain authority. The key constraint: escalation has a deadline. A conflict that remains unresolved for more than 10 business days must be escalated. A conflict that remains unresolved for more than 30 business days triggers a temporary governance hold on affected claims — they remain in the graph but are flagged as governance-pending, which lowers their effective epistemic tier for agent-action thresholds.
 
-No authority can unilaterally promote a claim to Authoritative or unilaterally dispose of a claim with active downstream dependencies. Both actions require two-authority agreement.
+No authority can unilaterally promote a claim to the Foundational epistemic tier or unilaterally dispose of a claim with active downstream dependencies. Both actions require two-authority agreement.
 
 ---
 
@@ -188,7 +189,7 @@ The manifesto describes "Capture" mode — expert knowledge sessions with practi
 
 **Compliance teams** will resist attesting to interpretations that could be used against the firm in examination. Frame compliance capture as recording the interpretation landscape at a point in time, scoped to the current regulatory state. The claim carries temporal validity and a note that it reflects the firm's interpretation as of the capture date.
 
-The general principle: capture is a governance conversation, not a deposition. The system must make it safe for practitioners to contribute without creating personal or institutional liability. Claims captured from practitioner sessions carry their own provenance type and cannot be promoted to High Confidence without independent corroboration — the practitioner's contribution is valuable but is a point of view, not ground truth (Principle 8).
+The general principle: capture is a governance conversation, not a deposition. The system must make it safe for practitioners to contribute without creating personal or institutional liability. Claims captured from practitioner sessions carry their own provenance type and cannot be promoted to the Validated epistemic tier without independent corroboration *and* a recorded validation event (Principle 13) — the practitioner's contribution is valuable but is a point of view, not ground truth (Principle 8).
 
 ---
 

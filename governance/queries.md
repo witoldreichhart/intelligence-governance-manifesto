@@ -14,16 +14,16 @@ Queries are organized by governance concern. Each query specifies what it asks, 
 Trace from assertion through extraction method, source document, and original authority. A claim without reconstructable provenance cannot satisfy regulatory examination standards.
 
 **IGQ-02: Is this claim derived from AI extraction? If so, has it been independently validated?**
-AI-extracted claims carry synthetic-origin risk. A claim that entered through AI extraction and has not been validated by an independent source or human expert should carry Provisional or Candidate confidence at most.
+AI-extracted claims carry synthetic-origin risk. A claim that entered through AI extraction and has not been validated by an independent source or human expert should carry Provisional or Emerging epistemic tier at most.
 
-**IGQ-03: What is the confidence level of this claim, and what evidence supports that level?**
-Confidence without evidence is opinion. The system must show exactly which corroborating sources, expert validations, and structural checks produced the current confidence level.
+**IGQ-03: What is the epistemic tier of this claim, and what evidence supports that tier?**
+A tier without evidence is opinion. The system must show exactly which corroborating sources, expert validations, structural checks, and (for Validated and above) which recorded validation event produced the current epistemic tier.
 
-**IGQ-04: Which claims in this reasoning chain have the lowest confidence?**
-A conclusion cannot have higher confidence than its weakest necessary premise. This query identifies the weakest links in any reasoning chain an agent traverses.
+**IGQ-04: Which claims in this reasoning chain have the lowest epistemic tier?**
+A conclusion cannot rest on a higher tier than its weakest necessary premise. This query identifies the weakest links in any reasoning chain an agent traverses; the chain-level summary it feeds is the *epistemic quality* surfaced at decision time.
 
-**IGQ-05: Has this claim's confidence changed in the last 90 days? In which direction?**
-Confidence trends matter. A claim that was Authoritative and is now Confirmed has a different risk profile from one that has been Confirmed for two years.
+**IGQ-05: Has this claim's epistemic tier changed in the last 90 days? In which direction?**
+Epistemic-tier trends matter. A claim that was Foundational and is now Validated has a different risk profile from one that has been Validated for two years.
 
 ---
 
@@ -46,7 +46,7 @@ At the point of decision, every loaded claim should be scope-compatible with the
 Early warning for approaching staleness. Claims near their decay window should be flagged for proactive revalidation rather than allowed to silently expire.
 
 **IGQ-10: Which claims have passed their revalidation deadline without being revalidated?**
-Active governance failure. Stale claims that remain in the graph at their previous confidence level are epistemic debt accumulating in real time.
+Active governance failure. Stale claims that remain in the graph at their previous epistemic tier are epistemic debt accumulating in real time.
 
 **IGQ-11: What is the staleness rate across the graph? By domain? By claim type?**
 System-level health metric. A graph with 5% stale claims in a well-maintained domain is healthy. A graph with 30% stale claims in an actively used domain is an operational risk.
@@ -75,13 +75,13 @@ Contradictions without authority review are unmanaged risk. This query tracks go
 ## Dependencies and cascade risk
 
 **IGQ-17: What claims depend on this claim?**
-Forward dependency tracing. If this claim is compromised, what else is affected? Critical for assessing the blast radius of any confidence change.
+Forward dependency tracing. If this claim is compromised, what else is affected? Critical for assessing the blast radius of any epistemic-tier change.
 
 **IGQ-18: What is the maximum dependency depth in this claim's downstream chain?**
 Deep dependency chains amplify cascade risk. A claim with 15 downstream dependents across 5 levels of indirection is systemically important and should be governed accordingly.
 
-**IGQ-19: If this claim's confidence dropped to Provisional, which agent workflows would be affected?**
-Impact analysis before it happens. The system should be able to simulate a confidence change and identify all affected downstream consumers.
+**IGQ-19: If this claim's epistemic tier dropped to Provisional, which agent workflows would be affected?**
+Impact analysis before it happens. The system should be able to simulate a tier change and identify all affected downstream consumers.
 
 **IGQ-20: Are there circular dependencies in this claim's dependency graph?**
 Circular dependencies create governance loops where two claims support each other without independent grounding. They must be detected and resolved.
@@ -91,20 +91,20 @@ Circular dependencies create governance loops where two claims support each othe
 ## Agent action governance
 
 **IGQ-21: What claims is this agent currently authorized to act on?**
-Scoped by the agent's authorization level, the task context, and confidence-to-action thresholds. An agent should never act on claims it has not been explicitly authorized to use for action.
+Scoped by the agent's authorization level, the task context, and epistemic-tier-to-action thresholds. An agent should never act on claims it has not been explicitly authorized to use for action.
 
-**IGQ-22: Has this agent's recommended action been traced to specific claims with sufficient confidence?**
-Every agent action recommendation must be traceable to the claims that support it, each meeting the confidence threshold for the action type. If any supporting claim falls below threshold, the action should be blocked or escalated.
+**IGQ-22: Has this agent's recommended action been traced to specific claims at sufficient epistemic tier?**
+Every agent action recommendation must be traceable to the claims that support it, each meeting the epistemic-tier threshold for the action's consequence class. If any supporting claim falls below threshold, the action should be blocked or escalated.
 
-**IGQ-23: What would change about this recommendation if the lowest-confidence supporting claim were removed?**
-Sensitivity analysis. If a recommendation depends critically on a single Confirmed claim and would change without it, that dependency should be visible to the accountable human.
+**IGQ-23: What would change about this recommendation if the lowest-tier supporting claim were removed?**
+Sensitivity analysis. If a recommendation depends critically on a single Validated-tier claim and would change without it, that dependency should be visible to the accountable human.
 
 ---
 
 ## System health
 
 **IGQ-24: What is the current epistemic debt load?**
-Composite metric: percentage of stale claims, unresolved contradictions, broken provenance chains, confidence levels that have not been reviewed within their decay window, and claims with degraded dependency chains. The system-level indicator of knowledge infrastructure health.
+Composite metric: percentage of stale claims, unresolved contradictions, broken provenance chains, epistemic tiers that have not been reviewed within their decay window, and claims with degraded dependency chains. The system-level indicator of knowledge infrastructure health.
 
 **IGQ-25: What changed in the graph in the last 24 hours / 7 days / 30 days, and what governance actions resulted?**
 Change log with governance response. A graph that changes frequently with no governance actions is ungoverned. A graph that never changes is dead. Both are failure modes.

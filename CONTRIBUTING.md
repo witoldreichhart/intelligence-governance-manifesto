@@ -15,7 +15,7 @@ This is a living framework. Intelligence governance is a new discipline — the 
 ## What we're not looking for
 
 - Cosmetic edits or reformatting
-- Adding principles without removing or restructuring existing ones (the twelve are deliberate)
+- Adding principles without removing or restructuring existing ones (the twelve principles and four integrity preconditions are deliberate)
 - Vendor-specific implementation guidance (this manifesto is technology-agnostic)
 
 ## Code of conduct

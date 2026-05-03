@@ -27,9 +27,9 @@ Financial services intelligence governance operates under overlapping regulatory
 
 ### Principle 1: The claim is the unit
 
-**FS application.** Regulatory guidance is currently governed at the document level — a firm "has" the MiFID II suitability requirements documented somewhere. Intelligence governance moves this to claim level: "MiFID II Article 25(2) requires that investment firms obtain necessary information regarding the client's knowledge and experience" is a governed claim with provenance, scope (EU, investment services), temporal validity (since January 3, 2018), and confidence level (Authoritative — primary regulatory source).
+**FS application.** Regulatory guidance is currently governed at the document level — a firm "has" the MiFID II suitability requirements documented somewhere. Intelligence governance moves this to claim level: "MiFID II Article 25(2) requires that investment firms obtain necessary information regarding the client's knowledge and experience" is a governed claim with provenance, scope (EU, investment services), temporal validity (since January 3, 2018), and epistemic tier (Foundational — primary regulatory source, structurally integrated into the substrate).
 
-**Regulatory connection.** BCBS 239 (Principles for Effective Risk Data Aggregation) already requires that risk data be "accurate, complete, and timely." The claim model operationalizes this at the knowledge level — each claim carries the metadata needed to assess accuracy (provenance, confidence), completeness (scope, contradictions), and timeliness (temporal validity, decay monitoring).
+**Regulatory connection.** BCBS 239 (Principles for Effective Risk Data Aggregation) already requires that risk data be "accurate, complete, and timely." The claim model operationalizes this at the knowledge level — each claim carries the metadata needed to assess accuracy (provenance, epistemic tier), completeness (scope, contradictions), and timeliness (temporal validity, decay monitoring).
 
 **Gap addressed.** Current FS knowledge management tracks documents. When an agent acts on a claim extracted from a document, there is no governance at the claim level — no way to know whether the specific assertion is current, scoped correctly, or contradicted by another source. The claim model fills this gap.
 
@@ -41,13 +41,13 @@ Financial services intelligence governance operates under overlapping regulatory
 
 **Gap addressed.** Current AI audit trails typically record model inputs and outputs. They do not record the provenance of the knowledge those inputs were drawn from. A claim with broken provenance — no traceable path from assertion to source — cannot satisfy regulatory examination standards.
 
-### Principle 3: Confidence is earned, not assigned
+### Principle 3: Epistemic tier is earned, not assigned
 
-**FS application.** A compliance officer's assertion about regulatory interpretation carries a different confidence profile than a published regulatory text. Both may be correct; they have different evidentiary standing. The five confidence levels (Provisional through Authoritative) map to FS decision-making: a Provisional claim is usable for internal research but not for client-facing advice or agent action.
+**FS application.** A compliance officer's assertion about regulatory interpretation carries a different epistemic tier than a published regulatory text. Both may be correct; they have different evidentiary standing. The four epistemic tiers (Provisional → Emerging → Validated → Foundational) map to FS decision-making and to the four consequence classes (Low → Medium → High → Critical): a Provisional claim is usable for internal research (Low consequence) but not for client-facing advice or agent action above Medium consequence.
 
-**Regulatory connection.** SR 11-7 requires that model inputs be "appropriate for the model's intended use" and that "uncertainty about inputs" be assessed. Intelligence governance operationalizes this through confidence levels that gate what actions may be taken on each claim.
+**Regulatory connection.** SR 11-7 requires that model inputs be "appropriate for the model's intended use" and that "uncertainty about inputs" be assessed. Intelligence governance operationalizes this through the epistemic-tier-to-action thresholds that gate what actions may be taken on each claim.
 
-**Gap addressed.** Current systems treat all knowledge as equally reliable once it enters the system. An AI-extracted claim from an analyst note and a direct regulatory citation carry the same weight in retrieval. Confidence scoring prevents agents from acting on weakly supported claims with the same authority as well-supported ones.
+**Gap addressed.** Current systems treat all knowledge as equally reliable once it enters the system. An AI-extracted claim from an analyst note and a direct regulatory citation carry the same weight in retrieval. Epistemic-tier scoring (colloquially "confidence scoring" in client-facing materials) prevents agents from acting on weakly supported claims with the same authority as well-supported ones.
 
 ### Principle 4: Contradictions are information
 
@@ -81,7 +81,7 @@ Financial services intelligence governance operates under overlapping regulatory
 |---|---|---|
 | **Semantic authority** | Enterprise data office / ontology team | What concepts exist in the graph, how they relate, when to decompose hub nodes |
 | **Assertion authority** | Domain SMEs, regulatory affairs, compliance | Whether specific claims are accurate within their declared scope |
-| **Inference authority** | Model risk, quantitative analytics | Whether reasoning chains across claims are valid, whether confidence propagation is correct |
+| **Inference authority** | Model risk, quantitative analytics | Whether reasoning chains across claims are valid, whether epistemic-tier propagation is correct |
 | **Revision authority** | Knowledge governance committee / CISO for security-sensitive claims | When claims should be superseded, demoted, sealed, or disposed |
 
 **Regulatory connection.** SR 11-7 requires "effective challenge" — independent review of model assumptions and outputs. The four-authority model extends effective challenge from models to the knowledge substrate models operate on.
@@ -101,9 +101,9 @@ Financial services intelligence governance operates under overlapping regulatory
 
 ### Principle 8: Expert knowledge is a point of view, not ground truth
 
-**FS application.** A head of settlement operations knows things no document captures. That knowledge is valuable and governable — but a single expert's operational claim cannot reach Authoritative confidence without independent corroboration. The expert may be right. The system governs the *confidence with which it acts on that claim* based on evidentiary standing, not personal authority.
+**FS application.** A head of settlement operations knows things no document captures. That knowledge is valuable and governable — but a single expert's operational claim cannot reach Validated tier (let alone Foundational) without independent corroboration *and* a recorded validation event (Principle 13). The expert may be right. The system governs the *epistemic tier at which it acts on that claim* based on evidentiary standing, not personal authority.
 
-**Regulatory connection.** SR 11-7 warns against "key person risk" in model governance — over-reliance on individual experts. Intelligence governance extends this to the knowledge substrate: institutional knowledge must not depend on a single person's uncorroborated claims at the highest confidence levels.
+**Regulatory connection.** SR 11-7 warns against "key person risk" in model governance — over-reliance on individual experts. Intelligence governance extends this to the knowledge substrate: institutional knowledge must not depend on a single person's uncorroborated claims at the higher epistemic tiers (Validated or Foundational).
 
 ### Principle 9: The graph must support structured inquiry
 
@@ -119,7 +119,7 @@ Financial services intelligence governance operates under overlapping regulatory
 
 ### Principle 11: Traceability is the response to acceleration
 
-**FS application.** When an agent recommends a trade, a compliance classification, or a settlement configuration, the reasoning chain must be traceable from action through reasoning through claims through provenance to source. In financial services, this traceability must satisfy regulatory examination standards — not just internal logging but reconstructable audit trails with confidence levels, scope qualifications, and contradiction flags at every step.
+**FS application.** When an agent recommends a trade, a compliance classification, or a settlement configuration, the reasoning chain must be traceable from action through reasoning through claims through provenance to source. In financial services, this traceability must satisfy regulatory examination standards — not just internal logging but reconstructable audit trails with epistemic tiers, scope qualifications, and contradiction flags at every step.
 
 **Regulatory connection.** EU AI Act Article 14 (human oversight for high-risk systems), MiFID II suitability record-keeping, SR 11-7 documentation requirements. Intelligence governance is designed to support the substrate-level traceability that these regulations increasingly demand.
 

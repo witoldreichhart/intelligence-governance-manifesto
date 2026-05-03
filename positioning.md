@@ -38,7 +38,7 @@ Knowledge management asks: can we find what we know? Intelligence governance ask
 
 Knowledge graphs structured domain knowledge as entities, relationships, and properties. At their best, they made institutional knowledge queryable, traversable, and machine-readable. Some implementations included provenance, confidence, and temporal validity.
 
-The gap: most enterprise knowledge graphs were populated once and maintained rarely. They solved the structure problem — how to represent knowledge — but not the lifecycle problem — how to keep it current, how to manage contradictions, how to detect decay, how to govern what agents may do with different confidence levels. A knowledge graph that was accurate when built and has not been maintained for eighteen months is not a governed intelligence base. It is a liability with a schema.
+The gap: most enterprise knowledge graphs were populated once and maintained rarely. They solved the structure problem — how to represent knowledge — but not the lifecycle problem — how to keep it current, how to manage contradictions, how to detect decay, how to govern what agents may do with different epistemic tiers. A knowledge graph that was accurate when built and has not been maintained for eighteen months is not a governed intelligence base. It is a liability with a schema.
 
 Intelligence governance uses graph structures. It adds the continuous lifecycle — Ingest, Consolidate, Curate, Expand, Apply — that keeps the graph operationally current and governed for machine consumption.
 
@@ -62,9 +62,9 @@ RAG asks: what is relevant to this query? Intelligence governance asks: what is 
 
 The discipline sits at the intersection of these traditions and adds what none of them provides on its own:
 
-**Claim-level governance.** The unit is not a document, not a record, not a passage — it is a governed assertion with type, provenance, confidence, scope, temporal validity, contradiction status, and governance status.
+**Claim-level governance.** The unit is not a document, not a record, not a passage — it is a governed assertion with type, provenance, epistemic tier, scope, temporal validity, contradiction status, and governance status.
 
-**Confidence that gates action.** Confidence is earned through a deterministic process and determines what agents may do. Provisional claims support search. Authoritative claims support regulatory evidence. The mapping from confidence to permitted action is explicit and auditable.
+**Epistemic tier that gates action.** Epistemic tier is earned through a deterministic process and determines what agents may do. Provisional claims support search. Foundational claims support regulatory evidence. The four-tier ladder (Provisional → Emerging → Validated → Foundational) maps 1:1 to consequence classes (Low → Medium → High → Critical), and the mapping from tier to permitted action is explicit and auditable. (When this property is referred to colloquially in decks or client conversations, it is called *confidence*; the formal governance term is *epistemic tier*.)
 
 **Contradiction as information.** Conflicts between claims are preserved, typed, and governed — not auto-resolved. Jurisdictional divergences, temporal supersessions, and logical contradictions carry different operational implications.
 
@@ -74,7 +74,7 @@ The discipline sits at the intersection of these traditions and adds what none o
 
 **Four governance authorities.** Semantic, assertion, inference, and revision authority are explicitly assigned. Every claim-affecting action maps to exactly one authority. Ungoverned authorities produce ungoverned graphs.
 
-**Regulatory traceability.** Every agent action in a regulated workflow traces from the action through the claims that informed it, their confidence tiers and provenance chains, to the sources. The chain is traversable in seconds for audit and examination.
+**Regulatory traceability.** Every agent action in a regulated workflow traces from the action through the claims that informed it, their epistemic tiers and provenance chains, to the sources. The chain is traversable in seconds for audit and examination.
 
 ---
 
@@ -82,10 +82,40 @@ The discipline sits at the intersection of these traditions and adds what none o
 
 None of this was urgent when the primary consumer of institutional knowledge was a human professional exercising interpretive judgment at human speed. Humans compensate for ungoverned knowledge — they check sources, weigh reliability informally, notice when something feels stale, and escalate when uncertain.
 
-AI agents do none of these things unless the system is built to make them do it. An agent consuming an ungoverned intelligence base at machine speed will act on stale claims, reason through untyped contradictions, and execute at high consequence levels on Provisional-confidence assertions — fluently, confidently, and at scale.
+AI agents do none of these things unless the system is built to make them do it. An agent consuming an ungoverned intelligence base at machine speed will act on stale claims, reason through untyped contradictions, and execute at high consequence levels on Provisional-tier assertions — fluently, confidently, and at scale.
 
 The forcing function is not AI capability. It is AI consumption of institutional knowledge under regulatory constraint. That specific combination — machine speed, institutional knowledge, regulated environment — is what creates the requirement for a new discipline. Intelligence governance is the discipline.
 
 ---
 
-*This is a companion to the Intelligence Governance Manifesto (Reichhart and Gelas, 2026). Licensed under CC BY-SA 4.0.*
+## Position in the agentic governance stack
+
+This document is part of the Intelligence Governance Manifesto (IGM). IGM and the other manifestos in the agentic governance stack govern *different surfaces*, not different altitudes — IGM specifies the substrate of governed claims; AEnt-M specifies how multiple agents coordinate over that substrate; AEM, ASDLC, and APLC specify how the agents themselves are built, delivered, and operated. The relationship between them is a **structural dependency, not a hierarchy**. The dependency direction is explicit:
+
+```
+Agentic Engineering Manifesto (AEM)
+   ├─ Agentic SDLC (ASDLC) — engineering-side governance of agent-built code
+   ├─ Agentic Product Lifecycle (APLC) — product-side governance of agent behavior
+   ├─ Intelligence Governance Manifesto (IGM) — substrate that agents reason over
+   └─ Agentic Enterprise Manifesto (AEnt-M) — enterprise coordination of multiple agents on a shared substrate
+       ├─ depends on IGM (substrate)
+       └─ inherits AEM principles
+```
+
+Earlier drafts of this document — and earlier drafts of the IGM `manifesto.md` — used the language of "companion" and "complementary" to describe the relationship between IGM and the rest of the stack. That framing conflated independence with parallelism and is now retired. The replacement is functional, not vertical: each manifesto governs a different surface, and they are connected by structural dependency. IGM is independent in the limited sense that it can be adopted on its own engineering-loop terms; it does not stand parallel to AEM, ASDLC, APLC, or AEnt-M, and it does not sit above or below them either.
+
+What this means in practice:
+
+- **IGM inherits AEM principles.** Any system that builds or operates an intelligence substrate is, by AEM's own scope, an agentic engineering system. AEM's twelve principles — outcomes (P1), specifications (P2), autonomy tiers (P5), knowledge & memory (P6), evaluations (P8), accountability (P12) — apply to the substrate-building loop itself. IGM extends and specialises P6 with claim-level governance, lifecycle, authority structure, and decay management. It does not replace AEM and is not coherent without it.
+- **IGM is required by AEnt-M.** AEnt-M coordinates *multiple* governed agents on a *shared* substrate. The substrate it coordinates over is the substrate IGM defines. An organisation that adopts AEnt-M without IGM has named the coordination problem without specifying what is coordinated. The dependency is structural, not stylistic.
+- **IGM is standalone-usable in a constrained sense.** A team building a single agent or a single workflow that needs governed claims, provenance, contradiction handling, and decay management can adopt IGM without adopting AEnt-M. *Then* the standalone-usable claim holds. The condition for that claim is precise:
+
+  > **If** the consuming agents are built and operated inside an AEM-conformant engineering loop (or an equivalent declared substitute), **then** IGM can be adopted independently of AEnt-M, ASDLC, and APLC. **If not**, IGM still defines the substrate but does not define how agents are built, delivered, or governed in production — those obligations are owed to AEM, ASDLC, and APLC respectively.
+
+- **IGM is not a substitute for AEM, ASDLC, APLC, or AEnt-M.** Each governs a different surface: engineering loop (AEM), delivery pipeline (ASDLC), individual product behaviour (APLC), substrate of governed claims (IGM), enterprise coordination (AEnt-M). Confusing one for another reproduces the failure modes IGM exists to prevent.
+
+For the canonical stack reference and term-collision preface, see [`/agentic-governance-stack.md`](../agentic-governance-stack.md). For the cross-manifesto authority and accountability mapping, see `governance/authority-accountability-matrix.md` (DRAFT — author review needed).
+
+---
+
+*This document is part of the Intelligence Governance Manifesto (Reichhart and Gelas, 2026). Licensed under CC BY-SA 4.0.*
