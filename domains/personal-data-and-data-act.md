@@ -2,7 +2,7 @@
 
 **Domain mapping for the Intelligence Governance Manifesto**
 
-This document maps the manifesto's twelve principles to systems that process personal data under the EU General Data Protection Regulation (GDPR) and to data-sharing obligations under the EU Data Act (Regulation (EU) 2023/2854, binding since 12 September 2025). It identifies where each principle connects to existing regulatory requirements and where it addresses gaps that current frameworks leave open.
+This document maps the manifesto's twelve principles and four integrity preconditions to systems that process personal data under the EU General Data Protection Regulation (GDPR) and to data-sharing obligations under the EU Data Act (Regulation (EU) 2023/2854, binding since 12 September 2025). It identifies where each principle connects to existing regulatory requirements and where it addresses gaps that current frameworks leave open.
 
 Intelligence governance does not claim to satisfy these regulations. It provides an architectural framework designed to support the knowledge-substrate requirements that these regulations increasingly imply but do not specify how to implement. Compliance determinations require domain-specific legal and regulatory analysis.
 
