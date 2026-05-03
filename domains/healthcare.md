@@ -2,7 +2,7 @@
 
 **Domain mapping for the Intelligence Governance Manifesto**
 
-This document maps the manifesto's twelve principles to the regulatory and operational context of healthcare AI under HIPAA and EU GDPR Article 9 (special-category personal data). It identifies where each principle connects to existing regulatory requirements and where it addresses gaps that current frameworks leave open.
+This document maps the manifesto's twelve principles and four integrity preconditions to the regulatory and operational context of healthcare AI under HIPAA and EU GDPR Article 9 (special-category personal data). It identifies where each principle connects to existing regulatory requirements and where it addresses gaps that current frameworks leave open.
 
 Intelligence governance does not claim to satisfy these regulations. It provides an architectural framework designed to support the knowledge-substrate requirements that these regulations increasingly imply but do not specify how to implement. Compliance determinations require domain-specific clinical, legal, and regulatory analysis.
 
