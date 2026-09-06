@@ -114,7 +114,7 @@ What this means in practice:
 
 - **IGM is not a substitute for AEM, ASDLC, APLC, or AEnt-M.** Each governs a different surface: engineering loop (AEM), delivery pipeline (ASDLC), individual product behaviour (APLC), substrate of governed claims (IGM), enterprise coordination (AEnt-M). Confusing one for another reproduces the failure modes IGM exists to prevent.
 
-For the canonical stack reference and term-collision preface, see [`/agentic-governance-stack.md`](../agentic-governance-stack.md). For the cross-manifesto authority and accountability mapping, see `governance/authority-accountability-matrix.md` (DRAFT — author review needed).
+For the canonical stack reference and term-collision preface, see [`/agentic-governance-stack.md`](https://github.com/arnaudgelas/agentic-engineering-manifesto/blob/main/agentic-governance-stack.md). For the cross-manifesto authority and accountability mapping, see `governance/authority-accountability-matrix.md` (DRAFT — author review needed).
 
 ---
 

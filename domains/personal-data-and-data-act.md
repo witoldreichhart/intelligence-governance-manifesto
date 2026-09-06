@@ -89,7 +89,7 @@ DRAFT — counsel review needed: The Data Act's interaction with GDPR (especiall
 
 **Regulatory connection.** GDPR Article 5(1)(e) (storage limitation) and Article 17 (right to erasure). Intelligence governance must support governed disposition — demote, archive, seal, anonymise, dispose — as first-class operations that propagate to derived claims.
 
-**Worked example.** A retention policy says behavioural-event claims expire after 24 months. An agent reasoning over a profile must not surface an event at month 25. Decay monitoring per claim type with linkage to retention rules makes this enforceable rather than dependent on a quarterly batch job.
+**Worked example**, illustrative throughout — the 24-month retention period is invented for the illustration and carries no regulatory or empirical weight. A retention policy says behavioural-event claims expire after 24 months; an agent reasoning over a profile must not surface an event at month 25. Decay monitoring per claim type with linkage to retention rules makes this enforceable rather than dependent on a quarterly batch job.
 
 **Gap addressed.** Current personal-data systems apply retention at the table level. Claim-level decay aligns disposition with the actual lawful-basis temporal scope, which Article 5(1)(e) requires.
 
@@ -161,8 +161,8 @@ DRAFT — public-record review needed: The specific findings, fines, and remedia
 
 ## Cross-references
 
-- See [`governance/authority-accountability-matrix.md`](../governance/authority-accountability-matrix.md) for the named-role mapping of the four authorities plus the DPO and substrate-security owner. *(Planned by A11.)*
-- See [`governance/foundation-model-third-party-register.md`](../governance/foundation-model-third-party-register.md) for the register of foundation models and third-party data sources whose claims enter the substrate, and the lawful basis under which each is processed. *(Planned by A11.)*
+- See [`governance/authority-accountability-matrix.md`](https://github.com/arnaudgelas/agentic-engineering-manifesto/blob/main/governance/authority-accountability-matrix.md) for the named-role mapping of the four authorities plus the DPO and substrate-security owner.
+- See [`governance/foundation-model-third-party-register.md`](https://github.com/arnaudgelas/agentic-engineering-manifesto/blob/main/regulatory/foundation-model-third-party-register.md) for the register of foundation models and third-party data sources whose claims enter the substrate, and the lawful basis under which each is processed.
 
 ---
 

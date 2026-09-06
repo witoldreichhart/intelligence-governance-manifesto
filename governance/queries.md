@@ -22,7 +22,7 @@ A tier without evidence is opinion. The system must show exactly which corrobora
 **IGQ-04: Which claims in this reasoning chain have the lowest epistemic tier?**
 A conclusion cannot rest on a higher tier than its weakest necessary premise. This query identifies the weakest links in any reasoning chain an agent traverses; the chain-level summary it feeds is the *epistemic quality* surfaced at decision time.
 
-**IGQ-05: Has this claim's epistemic tier changed in the last 90 days? In which direction?**
+**IGQ-05: Has this claim's epistemic tier changed in the last 90 days — a policy-set review period, chosen rather than measured? In which direction?**
 Epistemic-tier trends matter. A claim that was Foundational and is now Validated has a different risk profile from one that has been Validated for two years.
 
 ---
@@ -42,14 +42,14 @@ At the point of decision, every loaded claim should be scope-compatible with the
 
 ## Staleness and decay
 
-**IGQ-09: Which claims are within 30 days of their revalidation deadline?**
+**IGQ-09: Which claims are within 30 days — a policy-set early-warning window, chosen rather than measured — of their revalidation deadline?**
 Early warning for approaching staleness. Claims near their decay window should be flagged for proactive revalidation rather than allowed to silently expire.
 
 **IGQ-10: Which claims have passed their revalidation deadline without being revalidated?**
 Active governance failure. Stale claims that remain in the graph at their previous epistemic tier are epistemic debt accumulating in real time.
 
 **IGQ-11: What is the staleness rate across the graph? By domain? By claim type?**
-System-level health metric. A graph with 5% stale claims in a well-maintained domain is healthy. A graph with 30% stale claims in an actively used domain is an operational risk.
+System-level health metric, and both figures in it are policy-set reference points chosen by the authors rather than measured baselines: a graph with 5% stale claims in a well-maintained domain is treated as healthy, and one with 30% stale claims in an actively used domain as an operational risk.
 
 **IGQ-12: Which stale claims are on the critical path for active agent workflows?**
 Not all staleness is equally dangerous. A stale claim about a deprecated system is low risk. A stale regulatory interpretation on the critical path of a compliance workflow is high risk. This query prioritizes revalidation effort.

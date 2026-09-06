@@ -159,8 +159,8 @@ DRAFT — clinical SME review needed: The specific guideline divergence above sh
 
 ## Cross-references
 
-- See [`governance/authority-accountability-matrix.md`](../governance/authority-accountability-matrix.md) for the named-role mapping of the four authorities plus the substrate-security owner across an institutional org chart. *(Planned by A11.)*
-- See [`governance/foundation-model-third-party-register.md`](../governance/foundation-model-third-party-register.md) for the register of foundation models and third-party intelligence sources whose claims enter the substrate. *(Planned by A11.)*
+- See [`governance/authority-accountability-matrix.md`](https://github.com/arnaudgelas/agentic-engineering-manifesto/blob/main/governance/authority-accountability-matrix.md) for the named-role mapping of the four authorities plus the substrate-security owner across an institutional org chart.
+- See [`governance/foundation-model-third-party-register.md`](https://github.com/arnaudgelas/agentic-engineering-manifesto/blob/main/regulatory/foundation-model-third-party-register.md) for the register of foundation models and third-party intelligence sources whose claims enter the substrate.
 
 ---
 
