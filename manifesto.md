@@ -3,7 +3,7 @@
 **Principles for governing the domain intelligence that AI systems depend on.**
 
 *Authors: **[Witold Reichhart](https://github.com/witoldreichhart) and [Arnaud Gelas](https://github.com/arnaudgelas)***
-*Version: 1.4 — May 2026*
+*Version: 1.5 — May 2026*
 
 > **Terminology note (v1.4).** Supersedes v1.3's "rename confidence → epistemic tier." The IGM uses three terms with a clean division of labour: **confidence** (human-facing presentation-layer term — decks, dashboards, informal scoring), **epistemic tier** (formal governance term for the four discrete evidence levels: **Provisional → Emerging → Validated → Foundational**, mapped 1:1 to consequence classes), and **epistemic quality** (composite assessment of a reasoning chain, surfaced at decision time). Tier names always pair with "epistemic tier" — never with "confidence". The four-tier ladder is a clean break from the v1.0–v1.3 five-tier vocabulary (Provisional → Candidate → Confirmed → High Confidence → Authoritative). See [manifesto-principles.md](manifesto-principles.md) for the full note and the unified glossary's term-collision appendix for cross-version mappings.
 
@@ -99,7 +99,7 @@ Not all conflicts are the same. The system must distinguish between genuine logi
 
 **Preserve always; halt action conditionally.** Contradictions are always preserved as first-class objects — never silently overwritten. Whether a contradiction additionally *halts action* is a separate, narrower decision: action is halted when the contradiction is **material** to the action being taken **and** the action's consequence class is **High or Critical** (per the epistemic-circuit-breaker spec in `manifesto-principles.md` Principle 11). Material contradictions on Low or Medium-consequence actions surface as warnings; immaterial contradictions (out-of-scope, superseded, extraction-error pending review) do not gate action at all. Preservation is universal; halting is consequence-class-gated.
 
-When an agent's reasoning chain encounters a contradiction at runtime, the response is governed by the canonical decision tree in [`/integration/contradiction-handling-decision-tree.md`](../integration/contradiction-handling-decision-tree.md), which maps `contradiction-type × consequence-class × claim-tier` to a response class (Block / Escalate / Restrict scope / Advisory only / Continue with enhanced monitoring) per AEnt-M Principle 11. The substrate's preservation of the contradiction (this Value) is unchanged by the runtime response — IGM preserves; the decision tree determines what the agent does with what is preserved.
+When an agent's reasoning chain encounters a contradiction at runtime, the response is governed by the canonical decision tree in [`/integration/contradiction-handling-decision-tree.md`](https://github.com/arnaudgelas/agentic-engineering-manifesto/blob/main/integration/contradiction-handling-decision-tree.md), which maps `contradiction-type × consequence-class × claim-tier` to a response class (Block / Escalate / Restrict scope / Advisory only / Continue with enhanced monitoring) per AEnt-M Principle 11. The substrate's preservation of the contradiction (this Value) is unchanged by the runtime response — IGM preserves; the decision tree determines what the agent does with what is preserved.
 
 ### Value 4 — Continuous curation over periodic review
 
@@ -250,7 +250,7 @@ Agentic Engineering Manifesto (AEM)
        └─ inherits AEM principles
 ```
 
-This diagram is the canonical statement of the relationship. It supersedes any earlier "complementary" or "companion" framing in the IGM document set. See [`/agentic-governance-stack.md`](../agentic-governance-stack.md) for the canonical one-page reference.
+This diagram is the canonical statement of the relationship. It supersedes any earlier "complementary" or "companion" framing in the IGM document set. See [`/agentic-governance-stack.md`](https://github.com/arnaudgelas/agentic-engineering-manifesto/blob/main/agentic-governance-stack.md) for the canonical one-page reference.
 
 The layered relationship in narrative form:
 

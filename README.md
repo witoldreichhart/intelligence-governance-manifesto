@@ -43,6 +43,7 @@ This manifesto defines the structure.
 | [positioning.md](positioning.md) | How intelligence governance differs from data governance, knowledge management, knowledge graphs, and RAG |
 | [domains/financial-services.md](domains/financial-services.md) | Principle-by-principle mapping to FS regulations: EU AI Act, SR 11-7, DORA, MiFID II, BCBS 239, GDPR |
 | [governance/queries.md](governance/queries.md) | 25 canonical governance queries across six concerns |
+| [errata.md](errata.md) | Dated record of corrections made to previously published content |
 
 ---
 
@@ -67,7 +68,7 @@ What this means for IGM:
 - **IGM is standalone-usable when only one of the two sufficient conditions holds.** A single-team or single-agent context that needs governed claims, provenance, contradiction handling, and decay management can adopt IGM independently of AEnt-M — *if and only if* the consuming agents already operate inside an AEM-conformant engineering loop (or an equivalent declared substitute). IGM does not specify how agents are built or operated; that responsibility belongs to AEM, ASDLC, and APLC.
 - **IGM and AEnt-M are connected by structural dependency, not by parity or altitude.** Earlier drafts framed the two as parallel companions; that framing is retired. AEnt-M depends on IGM (the substrate it coordinates over); IGM does not depend on AEnt-M. Neither sits above or below the other — they govern different surfaces.
 
-See [`/agentic-governance-stack.md`](../agentic-governance-stack.md) for the canonical one-page stack reference, [`glossary.md`](glossary.md) and the repo-root `glossary.md` for term-collision resolution, and `governance/governance-integration-note.md` (DRAFT — author review needed) and `governance/authority-accountability-matrix.md` (DRAFT — author review needed) for the cross-stack integration artefacts.
+See [`/agentic-governance-stack.md`](https://github.com/arnaudgelas/agentic-engineering-manifesto/blob/main/agentic-governance-stack.md) for the canonical one-page stack reference, [`glossary.md`](glossary.md) and the repo-root `glossary.md` for term-collision resolution, and `governance/governance-integration-note.md` (DRAFT — author review needed) and `governance/authority-accountability-matrix.md` (DRAFT — author review needed) for the cross-stack integration artefacts.
 
 ---
 

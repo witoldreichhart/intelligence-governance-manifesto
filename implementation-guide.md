@@ -37,7 +37,7 @@ The smallest useful implementation. Suitable for a team beginning to build a dom
 
 **You do not yet need (above MVG):** Full four-authority governance, full cascade analysis depth, cross-domain linking, automated decay-rate calibration, engagement feedback loops, L4-tier operational integration, the Adaptive maturity capabilities.
 
-**Time to implement:** 4-8 weeks for a single domain, assuming the knowledge base already exists in some form. The MVG checklist above is heavier than the prior 5-item list; budget accordingly. The additional work is largely tagging (scope, decay class) and instrumentation (contradiction detection, scope-filter enforcement), not building new systems.
+**Time to implement:** 4-8 weeks for a single domain, assuming the knowledge base already exists in some form — a planning estimate whose origin is not established, since no completed implementation is named behind it. The MVG checklist above is heavier than the prior 5-item list; budget accordingly. The additional work is largely tagging (scope, decay class) and instrumentation (contradiction detection, scope-filter enforcement), not building new systems.
 
 ---
 
@@ -96,7 +96,7 @@ The eight Definition of Done criteria from `manifesto.md` are not all-or-nothing
 | **1. Populated** | Implicit (knowledge in documents/heads) | First achievable — claims extracted as units | Coverage measurable per domain | Coverage maintained against gap-detection | Gap-detection drives ingestion priorities |
 | **2. Connected** | Not tracked | Partial (basic entity resolution) | First fully achievable — entity resolution + cross-domain edges + contradiction map | Cross-domain links continuously refreshed | New connections surfaced by graph self-extension |
 | **3. Validated** | No tier | Informal tier | First fully achievable — tier earned through deterministic criteria; provenance verified | Validation events recorded as P13 first-class objects | Validation cadence calibrated by observed decay |
-| **4. Governed** | No authorities | Authority informal | First fully achievable — all four authorities named, decay monitoring active, revision workflow operational | Authorities + escalation SLOs (10/30 day) reportable to second line | Authority workload calibrated by observed conflict patterns |
+| **4. Governed** | No authorities | Authority informal | First fully achievable — all four authorities named, decay monitoring active, revision workflow operational | Authorities + escalation SLOs (10/30 day — policy-set defaults, set here rather than measured) reportable to second line | Authority workload calibrated by observed conflict patterns |
 | **5. Applied** | Ad hoc consumption | Structured retrieval | At least one engagement consuming with feedback loop | First fully achievable — agent action gated by epistemic-tier-to-action thresholds; circuit breakers operational | Feedback drives substrate fertility metrics |
 | **6. Traceable** | None | Document trace | Provenance chain complete and auditable | First fully achievable — every agent action traceable to claims with tier and provenance at time of action | Trace data feeds governance-relocation metrics |
 | **7. Accountable** | Implicit | Named owner per domain | First fully achievable — four authorities staffed, boundaries documented, escalation paths defined | Accountability anchored in evidence bundles per release | Authority succession + portfolio limits enforced |
@@ -153,7 +153,7 @@ The eight Definition of Done criteria from `manifesto.md` are not all-or-nothing
 
 **Goal:** Extend governance to additional domains. Each new domain follows Phases 1-3 with decreasing time-to-governance as patterns transfer.
 
-**Expected timeline by domain:**
+**Expected timeline by domain** — both figures are planning estimates whose origin is not established, since no completed multi-domain rollout is named behind them:
 - Domain 2: 8-12 weeks (patterns from domain 1 transfer, especially entity resolution and governance authority structure)
 - Domain 3+: 6-10 weeks (cross-domain linking begins to surface shared claims and reduce duplication)
 
@@ -173,7 +173,9 @@ The eight Definition of Done criteria from `manifesto.md` are not all-or-nothing
 
 ### Leading indicators (predict governance quality)
 
-| Metric | Target | Warning threshold |
+Every target and warning threshold in both tables below is a policy-set default — chosen by the authors as a starting calibration, not derived from a measured baseline — and implementations are expected to reset them against their own observed distributions.
+
+| Metric | Target (policy-set) | Warning threshold (policy-set) |
 |---|---|---|
 | Claims with complete provenance | >95% | <85% |
 | Claims within revalidation window | >90% | <80% |
@@ -183,7 +185,7 @@ The eight Definition of Done criteria from `manifesto.md` are not all-or-nothing
 
 ### Lagging indicators (measure governance outcomes)
 
-| Metric | Target | Warning threshold |
+| Metric | Target (policy-set) | Warning threshold (policy-set) |
 |---|---|---|
 | Epistemic debt ratio (stale + broken + unreviewed claims / total) | <10% | >20% |
 | Agent actions blocked by epistemic circuit breakers (*inverse indicator of governance relocation success*) | Declining trend with stable/improving decision quality | Rising trend, or declining trend with falling decision quality |
@@ -213,7 +215,7 @@ The eight Definition of Done criteria from `manifesto.md` are not all-or-nothing
 
 **Identifying P2 (High-dependency) claims.** Use IGQ-17 (downstream-dependent count) and IGQ-18 (cascade reach) as the primary signals. Maintain a watchlist of the top-decile dependent claims per domain.
 
-**Auto-revalidation envelope.** Auto-revalidation handles unambiguous cases — regulatory source unchanged since last validation, no contradiction or epistemic-tier transition since last validation, no L3 cascade event affecting the claim. When all three conditions hold, the decay clock resets automatically. When any condition is breached, the claim is queued for human review. In practice, auto-revalidation handles 40–60% of revalidation volume.
+**Auto-revalidation envelope.** Auto-revalidation handles unambiguous cases — regulatory source unchanged since last validation, no contradiction or epistemic-tier transition since last validation, no L3 cascade event affecting the claim. When all three conditions hold, the decay clock resets automatically. When any condition is breached, the claim is queued for human review. The 40–60% of revalidation volume this envelope is expected to absorb is a figure whose origin is not established — no instrumented run is named behind it — and implementations should measure their own share rather than plan against it.
 
 **Promotion of P4 → P3 on engagement reactivation.** Dormant claims are not deleted. When an engagement reactivates the domain, P4 claims are promoted to P3 and revalidated *before* any agent use. The Apply stage refuses to load P4 claims into L1.
 
@@ -225,7 +227,7 @@ The eight Definition of Done criteria from `manifesto.md` are not all-or-nothing
 
 The IGM tier system gates what agents may do with claims (see *Epistemic-tier-to-action thresholds* in the [companion guide](companion-guide.md)). In practice, operational reality occasionally requires acting on a claim at a tier below the threshold its consequence class demands — the validation evidence is partially complete, a primary regulatory source is mid-amendment, the curation backlog has not yet caught up. Without a governed waiver mechanism, teams either block legitimate operations or silently degrade the threshold. Both outcomes corrupt the substrate.
 
-This section defines the **Epistemic Tier Waiver** — a time-bounded, named-owner accommodation that allows a claim to be used above its earned tier under defined compensating controls. It is modelled on the ASDLC waiver mechanism ([waiver-governance.md](../asdlc/waiver-governance.md)) and follows the same governance-debt discipline.
+This section defines the **Epistemic Tier Waiver** — a time-bounded, named-owner accommodation that allows a claim to be used above its earned tier under defined compensating controls. It is modelled on the ASDLC waiver mechanism ([waiver-governance.md](https://github.com/arnaudgelas/asdlc/blob/main/waiver-governance.md)) and follows the same governance-debt discipline.
 
 ### Required fields
 
@@ -239,25 +241,25 @@ Every Epistemic Tier Waiver must include all of the following. A waiver missing 
 
 **Remediation plan.** A specific plan for earning the claim's tier through legitimate corroboration and validation before the waiver expires. The plan must name an owner, a target completion date that precedes the expiry date, and the specific evidence required (which corroborating sources, what validation event under P13).
 
-**Expiry date.** No waiver exceeds 90 days from issue date. Extensions require escalation to the accountable human (the system steward or domain governance lead) with a written rationale; renewals are not routine. An expired waiver without remediation immediately reverts the claim to its earned tier; if the consuming workflow depended on the elevated tier, that workflow's claims become **non-operational** until the underlying tier is re-earned through corroboration and a P13 validation event.
+**Expiry date.** No waiver exceeds a policy-set cap of 90 days from issue date — a chosen default, modelled on the ASDLC waiver-governance cap rather than calibrated against observed remediation times. Extensions require escalation to the accountable human (the system steward or domain governance lead) with a written rationale; renewals are not routine. An expired waiver without remediation immediately reverts the claim to its earned tier; if the consuming workflow depended on the elevated tier, that workflow's claims become **non-operational** until the underlying tier is re-earned through corroboration and a P13 validation event.
 
 **Linked claim.** The specific claim being waived, by claim identifier, with the earned tier and the waived tier explicitly recorded.
 
 ### Lifecycle
 
-A waiver moves through the same five states as the ASDLC waiver: Issued → Active → Expiring → Expired-without-remediation OR Closed. The Curate stage is responsible for tracking waiver state alongside its other quality functions. Expiring-state waivers (within 30 days of expiry) are surfaced to the waiver owner and to the consumer workflow's accountable human.
+A waiver moves through the same five states as the ASDLC waiver: Issued → Active → Expiring → Expired-without-remediation OR Closed. The Curate stage is responsible for tracking waiver state alongside its other quality functions. Expiring-state waivers (within 30 days of expiry, a policy-set warning window chosen to sit inside the 90-day cap) are surfaced to the waiver owner and to the consumer workflow's accountable human.
 
 ### Portfolio governance
 
 Tier waivers accumulate. Portfolio-level tracking is a Revision authority responsibility:
 
-- More than 3 active tier waivers per domain at any time indicates a curation capacity problem (P12 — unfunded mandates) or an over-aggressive consequence-class assignment.
-- More than 20% of a domain's claims at a single waived tier indicates a systemic gap in corroboration or validation evidence — the tier criteria may be miscalibrated, or the domain may lack the corroborating sources needed.
+- More than 3 active tier waivers per domain at any time — a policy-set portfolio limit, chosen rather than measured — indicates a curation capacity problem (P12 — unfunded mandates) or an over-aggressive consequence-class assignment.
+- More than 20% of a domain's claims at a single waived tier — again a policy-set concentration limit, chosen rather than measured — indicates a systemic gap in corroboration or validation evidence — the tier criteria may be miscalibrated, or the domain may lack the corroborating sources needed.
 - Repeated waivers on the same claim across consecutive cycles indicate that the remediation plan is not real. Such claims are escalated to the system steward, not re-waived.
 
 > **DRAFT — author review needed.** The 90-day cap and portfolio thresholds (3 per domain, 20% concentration) are starting points modelled on the ASDLC waiver-governance defaults. Authors should confirm whether IGM-specific calibration (e.g. shorter cap for Validated → Foundational waivers, longer for Provisional → Emerging) is warranted.
 
-Cross-references: [governance/governance-integration-note.md](governance/governance-integration-note.md) (planned) for how an Epistemic Tier Waiver interacts with AEnt-M consequence-class accountability and AEM Tier 4 envelopes; [governance/authority-accountability-matrix.md](governance/authority-accountability-matrix.md) (planned) for Revision authority's role in tier-waiver decisions; [governance/composition-rule.md](governance/composition-rule.md) (planned) for how a waived tier participates in the autonomy × epistemic × consequence composition.
+Cross-references: [governance/governance-integration-note.md](https://github.com/arnaudgelas/agentic-engineering-manifesto/blob/main/governance/governance-integration-note.md) for how an Epistemic Tier Waiver interacts with AEnt-M consequence-class accountability and AEM Tier 4 envelopes; [governance/authority-accountability-matrix.md](https://github.com/arnaudgelas/agentic-engineering-manifesto/blob/main/governance/authority-accountability-matrix.md) for Revision authority's role in tier-waiver decisions; [governance/composition-rule.md](https://github.com/arnaudgelas/agentic-engineering-manifesto/blob/main/governance/composition-rule.md) for how a waived tier participates in the autonomy × epistemic × consequence composition.
 
 ---
 
@@ -281,7 +283,7 @@ Every authority assignment, including the named alternate, is reviewed annually.
 
 ### Revision authority portfolio limit
 
-The Revision authority is the most load-sensitive of the four — challenge handling, contradiction resolution, epistemic-tier downgrade, decay management, and now Epistemic Tier Waiver ownership all flow through it. A single Revision authority may concurrently hold the role for **no more than three domains**. Above three, response time on revisions degrades and tier waivers accumulate at the portfolio level (see Epistemic Tier Waiver portfolio governance, above). Implementations must track Revision authority load and reassign when the cap is approached.
+The Revision authority is the most load-sensitive of the four — challenge handling, contradiction resolution, epistemic-tier downgrade, decay management, and now Epistemic Tier Waiver ownership all flow through it. A single Revision authority may concurrently hold the role for **no more than three domains**, a policy-set portfolio limit chosen by the authors and not derived from measured authority workload. Above three, response time on revisions degrades and tier waivers accumulate at the portfolio level (see Epistemic Tier Waiver portfolio governance, above). Implementations must track Revision authority load and reassign when the cap is approached.
 
 > **DRAFT — author review needed.** The 5-business-day activation trigger and the 3-domain Revision authority cap are starting points. Authors should confirm whether different caps apply to different authority types (Semantic and Inference are typically lower-volume; Assertion may exceed 3 domains depending on automation level).
 
@@ -289,7 +291,7 @@ The Revision authority is the most load-sensitive of the four — challenge hand
 
 Authority activations, reviews, and re-assignments are recorded in a **Continuity log** maintained as part of the governance register. The log shows, per authority, per domain, the current primary, the current alternate, the most recent annual review date, and any active activation. Auditors and supervisory examiners can read continuity from this log as a single artefact.
 
-Cross-references: [governance/authority-accountability-matrix.md](governance/authority-accountability-matrix.md) (planned) for how IGM authority continuity interacts with AEnt-M consequence-class roles, ASDLC stewards, and APLC product roles.
+Cross-references: [governance/authority-accountability-matrix.md](https://github.com/arnaudgelas/agentic-engineering-manifesto/blob/main/governance/authority-accountability-matrix.md) for how IGM authority continuity interacts with AEnt-M consequence-class roles, ASDLC stewards, and APLC product roles.
 
 ---
 
